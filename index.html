@@ -570,7 +570,15 @@ function renderFrame(){
       if(!tx) return false;
       const isPath1 = (a.id === tx.from && b.id === tx.to) || (a.id === tx.to && b.id === tx.from);
       const isPath2 = tx.target && ((a.id === tx.to && b.id === tx.target) || (a.id === tx.target && b.id === tx.to));
-      return isPath1 || isPath2;
+      // Cascade 9Router -> Model connection
+      const is9RouterCascade = (tx.to === 'service-9router' || tx.from === 'service-9router') &&
+        ((a.id === 'service-9router' && (b.id === tx.target || (!tx.target && (b.id === 'model-agy-combo' || b.status === 'active')))) ||
+         (b.id === 'service-9router' && (a.id === tx.target || (!tx.target && (a.id === 'model-agy-combo' || a.status === 'active')))));
+      // Cascade Honcho -> DB / Memory connection
+      const isHonchoCascade = (tx.to === 'service-honcho' || tx.from === 'service-honcho') &&
+        ((a.id === 'service-honcho' && (b.id === tx.target || (!tx.target && (b.id === 'db-postgres' || b.id === 'dep-honcho-db')))) ||
+         (b.id === 'service-honcho' && (a.id === tx.target || (!tx.target && (a.id === 'db-postgres' || a.id === 'dep-honcho-db')))));
+      return isPath1 || isPath2 || is9RouterCascade || isHonchoCascade;
     });
 
     if(activeTx){
@@ -586,17 +594,26 @@ function renderFrame(){
       CTX.shadowBlur = 18;
       CTX.stroke();
 
+      // Flow direction
+      const isReverse = (activeTx.action === 'llm_response' || activeTx.from === b.id || activeTx.to === a.id);
+      const dirX = isReverse ? -ux : ux;
+      const dirY = isReverse ? -uy : uy;
+
       // Fast streaming photon stream / laser packets
       const numPackets = 4;
       for(let p = 0; p < numPackets; p++){
-        const packetT = ((now * 0.0022 + p * 0.25) % 1.0);
-        const px = startX + (endX - startX) * packetT;
-        const py = startY + (endY - startY) * packetT;
+        const packetT = ((now * 0.0024 + p * 0.25) % 1.0);
+        const px = isReverse 
+          ? endX + (startX - endX) * packetT
+          : startX + (endX - startX) * packetT;
+        const py = isReverse 
+          ? endY + (startY - endY) * packetT
+          : startY + (endY - startY) * packetT;
 
         // Tail trail
         const tailLen = 14;
         CTX.beginPath();
-        CTX.moveTo(px - ux * tailLen, py - uy * tailLen);
+        CTX.moveTo(px - dirX * tailLen, py - dirY * tailLen);
         CTX.lineTo(px, py);
         CTX.strokeStyle = '#ffffff';
         CTX.lineWidth = 2.4;
@@ -610,6 +627,27 @@ function renderFrame(){
         CTX.shadowBlur = 14;
         CTX.fill();
       }
+      CTX.restore();
+    } else if(lk.active || lk.is_active_model_route){
+      // Subtle glowing ambient pulse along the active model route
+      CTX.save();
+      const pulseT = ((now * 0.0014) % 1.0);
+      const px = startX + (endX - startX) * pulseT;
+      const py = startY + (endY - startY) * pulseT;
+
+      CTX.beginPath();
+      CTX.moveTo(px - ux * 8, py - uy * 8);
+      CTX.lineTo(px, py);
+      CTX.strokeStyle = 'rgba(139, 92, 246, 0.7)';
+      CTX.lineWidth = 1.8;
+      CTX.stroke();
+
+      CTX.beginPath();
+      CTX.arc(px, py, 2.2, 0, Math.PI * 2);
+      CTX.fillStyle = '#a78bfa';
+      CTX.shadowColor = '#a78bfa';
+      CTX.shadowBlur = 8;
+      CTX.fill();
       CTX.restore();
     }
 
@@ -637,7 +675,13 @@ function renderFrame(){
     const isSel = selectedNode && selectedNode.id === n.id;
 
     // Active Transmission Radar Ripple on Destination/Target Node
-    const activeForNode = LIVE_TRANSMISSIONS.find(tx => tx.to === n.id || tx.target === n.id || (tx.from === n.id && n.id !== 'hermes'));
+    const activeForNode = LIVE_TRANSMISSIONS.find(tx => {
+      if(!tx) return false;
+      if(tx.to === n.id || tx.target === n.id || (tx.from === n.id && n.id !== 'hermes')) return true;
+      if((tx.to === 'service-9router' || tx.from === 'service-9router') && (n.id === (tx.target || 'model-agy-combo') || (n.id === 'model-agy-combo' && !tx.target))) return true;
+      if((tx.to === 'service-honcho' || tx.from === 'service-honcho') && (n.id === (tx.target || 'db-postgres') || (n.id === 'db-postgres' && !tx.target))) return true;
+      return false;
+    });
     if(activeForNode){
       const txCol = activeForNode.color || c;
       const rip1 = ((now * 0.0025) % 1.0);

@@ -86,18 +86,20 @@ def on_skill_lifecycle(**kwargs) -> None:
 
 def pre_api_request(**kwargs) -> None:
     """Fired right before calling LLM API (9Router)."""
-    model = kwargs.get("model", "default")
+    model = kwargs.get("model", "agy-combo")
     model_str = str(model)
-    target_id = "model-default-llm"
+    target_id = "model-agy-combo"
     model_lower = model_str.lower()
-    if "glm" in model_lower:
-        target_id = "model-glm-5"
-    elif "kimi" in model_lower:
-        target_id = "model-kimi-k2.5"
-    elif "claude" in model_lower:
-        target_id = "model-claude-3-5"
-    elif "minimax" in model_lower:
-        target_id = "model-minimax"
+    if "claude" in model_lower:
+        target_id = "model-agy-claude"
+    elif "nemotron" in model_lower:
+        target_id = "model-nemotron"
+    elif "openrouter" in model_lower:
+        target_id = "upstream-openrouter"
+    elif "xkiro" in model_lower:
+        target_id = "provider-xkiro"
+    elif "combo" in model_lower or "agy" in model_lower:
+        target_id = "model-agy-combo"
 
     _send_telemetry({
         "action": "route_llm",
@@ -107,23 +109,35 @@ def pre_api_request(**kwargs) -> None:
         "label": f"9Router: {model_str}",
         "detail": f"Routing prompt to {model_str} via 9Router",
         "color": "#8b5cf6",
-        "duration_s": 4.5,
+        "duration_s": 5.0,
     })
 
 
 def post_api_request(**kwargs) -> None:
     """Fired when LLM API returns tokens/response."""
-    model = kwargs.get("model", "LLM")
+    model = kwargs.get("model", "agy-combo")
+    model_str = str(model)
+    target_id = "model-agy-combo"
+    model_lower = model_str.lower()
+    if "claude" in model_lower:
+        target_id = "model-agy-claude"
+    elif "nemotron" in model_lower:
+        target_id = "model-nemotron"
+    elif "openrouter" in model_lower:
+        target_id = "upstream-openrouter"
+    elif "xkiro" in model_lower:
+        target_id = "provider-xkiro"
+
     duration = kwargs.get("api_duration", 0.0)
     _send_telemetry({
         "action": "llm_response",
-        "from": "service-9router",
-        "to": "hermes",
+        "from": target_id,
+        "to": "service-9router",
         "target": "hermes",
-        "label": "Tokens Streaming",
-        "detail": f"Model responded in {duration:.1f}s",
+        "label": f"Streaming {model_str}",
+        "detail": f"Model tokens responded in {duration:.1f}s",
         "color": "#8b5cf6",
-        "duration_s": 3.0,
+        "duration_s": 4.0,
     })
 
 

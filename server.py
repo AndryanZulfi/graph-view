@@ -810,7 +810,7 @@ def get_skills_graph():
         {'source': 'service-clients', 'target': 'hermes', 'kind': 'main', 'dir': 'both', 'label': 'User Prompts & Delivery', 'value': 4, 'in_hermes_subgraph': False},
 
         # 9Router → Models & Upstream Providers
-        {'source': 'service-9router', 'target': 'model-agy-combo', 'kind': 'dep', 'dir': 'out', 'label': 'Default Chat Route', 'value': 3, 'in_hermes_subgraph': True},
+        {'source': 'service-9router', 'target': 'model-agy-combo', 'kind': 'dep', 'dir': 'out', 'label': 'Default Chat Route', 'value': 3, 'in_hermes_subgraph': True, 'active': True, 'is_active_model_route': True},
         {'source': 'service-9router', 'target': 'model-agy-claude', 'kind': 'dep', 'dir': 'out', 'label': 'Claude Route', 'value': 2, 'in_hermes_subgraph': True},
         {'source': 'service-9router', 'target': 'model-nemotron', 'kind': 'dep', 'dir': 'out', 'label': 'Nemotron 550B', 'value': 2, 'in_hermes_subgraph': True},
         {'source': 'service-9router', 'target': 'provider-xkiro', 'kind': 'dep', 'dir': 'out', 'label': 'Xkiro Endpoint', 'value': 2, 'in_hermes_subgraph': True},
