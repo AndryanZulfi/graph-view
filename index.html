@@ -600,16 +600,6 @@ function renderFrame(){
         CTX.fill();
       }
       CTX.restore();
-    } else if(!hasFocus || isHovered){
-      // Normal idle animated packet pulse
-      const pulseSpeed = 0.0006;
-      const packetT = ((now * pulseSpeed + (lk.a * 17)) % 1.0);
-      const px = startX + (endX - startX) * packetT;
-      const py = startY + (endY - startY) * packetT;
-      CTX.beginPath();
-      CTX.arc(px, py, isMain ? 2.2 : 1.6, 0, Math.PI*2);
-      CTX.fillStyle = isHovered ? '#ffffff' : (isMain ? '#ffffff' : hexAlpha(getNodeColor(b), 0.9));
-      CTX.fill();
     }
 
     // Subtle edge label if zoomed in or hovered
