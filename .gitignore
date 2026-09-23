@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.bak
+*.png
+!assets/*.png
+.DS_Store
+active_skill.json

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Celestial Particle Nebula - Hermes p5js</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <style>
+    body { margin: 0; background: #03040a; overflow: hidden; display: flex; justify-content: center; align-items: center; height: 100vh; }
+  </style>
+</head>
+<body>
+<script>
+let particles = [];
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  for(let i=0; i<150; i++) {
+    particles.push({
+      x: random(width),
+      y: random(height),
+      vx: random(-0.5, 0.5),
+      vy: random(-0.5, 0.5),
+      size: random(1.5, 4),
+      c: color(random(['#38bdf8', '#c084fc', '#f43f5e', '#34d399']))
+    });
+  }
+}
+function draw() {
+  background(3, 4, 10, 25);
+  for(let p of particles) {
+    p.x += p.vx;
+    p.y += p.vy;
+    if(p.x < 0) p.x = width;
+    if(p.x > width) p.x = 0;
+    if(p.y < 0) p.y = height;
+    if(p.y > height) p.y = 0;
+    fill(p.c);
+    noStroke();
+    circle(p.x, p.y, p.size);
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  hermes-galaxy:
+    build: .
+    container_name: hermes-galaxy-view
+    restart: unless-stopped
+    ports:
+      - "8899:8899"
+    volumes:
+      # Mount folder skills Hermes dari parent directory (Read-Only)
+      - ../skills:/skills:ro
+      # Mount index.html dan server.py langsung dari direktori saat ini
+      - ./index.html:/app/index.html:ro
+      - ./server.py:/app/server.py:ro
+      - ./active_skill.json:/app/active_skill.json:rw
+    environment:
+      - PORT=8899
+      - SKILLS_DIR=/skills
+    networks:
+      - ai-network
+
+networks:
+  ai-network:
+    external: true

@@ -1,0 +1,2602 @@
+{
+  "nodes": [
+    {
+      "id": "core",
+      "label": "HERMES",
+      "type": "core",
+      "category": "core",
+      "desc": "Autonomous AI Engine & Core Brain"
+    },
+    {
+      "id": "email-inbox-triage",
+      "label": "email-inbox-triage",
+      "type": "skill",
+      "category": "email",
+      "desc": "Triage an inbox: prioritize threads, draft replies safely."
+    },
+    {
+      "id": "himalaya",
+      "label": "himalaya",
+      "type": "skill",
+      "category": "email",
+      "desc": "Himalaya CLI: IMAP/SMTP email from terminal."
+    },
+    {
+      "id": "himalaya-configuration",
+      "label": "Configuration",
+      "type": "subskill",
+      "category": "email",
+      "parent": "himalaya",
+      "desc": "himalaya reference: Configuration"
+    },
+    {
+      "id": "himalaya-message-composition",
+      "label": "Message Composition",
+      "type": "subskill",
+      "category": "email",
+      "parent": "himalaya",
+      "desc": "himalaya reference: Message Composition"
+    },
+    {
+      "id": "gif-search",
+      "label": "gif-search",
+      "type": "skill",
+      "category": "media",
+      "desc": "Search/download GIFs from Tenor via curl + jq."
+    },
+    {
+      "id": "youtube-content",
+      "label": "youtube-content",
+      "type": "skill",
+      "category": "media",
+      "desc": "YouTube transcripts to summaries, threads, blogs."
+    },
+    {
+      "id": "youtube-content-output-formats",
+      "label": "Output Format Examples",
+      "type": "subskill",
+      "category": "media",
+      "parent": "youtube-content",
+      "desc": "youtube-content reference: Output Formats"
+    },
+    {
+      "id": "youtube-content-fetch-transcript",
+      "label": "Fetch Transcript",
+      "type": "subskill",
+      "category": "media",
+      "parent": "youtube-content",
+      "desc": "youtube-content tool script: fetch_transcript.py"
+    },
+    {
+      "id": "songsee",
+      "label": "songsee",
+      "type": "skill",
+      "category": "media",
+      "desc": "Audio spectrograms/features (mel, chroma, MFCC) via CLI."
+    },
+    {
+      "id": "xurl",
+      "label": "xurl",
+      "type": "skill",
+      "category": "social-media",
+      "desc": "X/Twitter via xurl CLI: raw post search, posting, DM, media."
+    },
+    {
+      "id": "obsidian",
+      "label": "obsidian",
+      "type": "skill",
+      "category": "note-taking",
+      "desc": "Read, search, create, and edit notes in the Obsidian vault."
+    },
+    {
+      "id": "competitor-news-monitor",
+      "label": "competitor-news-monitor",
+      "type": "skill",
+      "category": "research",
+      "desc": "Watch named companies for material news; cited digests."
+    },
+    {
+      "id": "llm-wiki",
+      "label": "llm-wiki",
+      "type": "skill",
+      "category": "research",
+      "desc": "Karpathy's LLM Wiki: build/query interlinked markdown KB."
+    },
+    {
+      "id": "arxiv",
+      "label": "arxiv",
+      "type": "skill",
+      "category": "research",
+      "desc": "Search arXiv papers by keyword, author, category, or ID."
+    },
+    {
+      "id": "arxiv-search-arxiv",
+      "label": "Search Arxiv",
+      "type": "subskill",
+      "category": "research",
+      "parent": "arxiv",
+      "desc": "arxiv tool script: search_arxiv.py"
+    },
+    {
+      "id": "grounded-citations",
+      "label": "grounded-citations",
+      "type": "skill",
+      "category": "research",
+      "desc": "Ground answers and documents in cited, verifiable sources."
+    },
+    {
+      "id": "grounded-citations-citation-formats",
+      "label": "Citation Formats",
+      "type": "subskill",
+      "category": "research",
+      "parent": "grounded-citations",
+      "desc": "grounded-citations reference: Citation Formats"
+    },
+    {
+      "id": "grounded-citations-grounding-rationale",
+      "label": "Grounding Rationale",
+      "type": "subskill",
+      "category": "research",
+      "parent": "grounded-citations",
+      "desc": "grounded-citations reference: Grounding Rationale"
+    },
+    {
+      "id": "grounded-citations-sources",
+      "label": "Sources",
+      "type": "subskill",
+      "category": "research",
+      "parent": "grounded-citations",
+      "desc": "grounded-citations tool script: sources.py"
+    },
+    {
+      "id": "antislop",
+      "label": "antislop",
+      "type": "skill",
+      "category": "software-development",
+      "desc": "Use when designing UI, writing copy, or reviewing code. Eliminates generic AI slop, fake metrics, and bloated comments."
+    },
+    {
+      "id": "antislop-38-rules",
+      "label": "antislop",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "antislop",
+      "desc": "antislop reference: 38 Rules"
+    },
+    {
+      "id": "antislop-code-comments",
+      "label": "antislop-code",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "antislop",
+      "desc": "antislop reference: Code Comments"
+    },
+    {
+      "id": "antislop-copywriting",
+      "label": "antislop-copywriting",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "antislop",
+      "desc": "antislop reference: Copywriting"
+    },
+    {
+      "id": "antislop-human-accessibility",
+      "label": "antislop-human",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "antislop",
+      "desc": "antislop reference: Human Accessibility"
+    },
+    {
+      "id": "antislop-mobile-layout",
+      "label": "antislop-layoutmobile",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "antislop",
+      "desc": "antislop reference: Mobile Layout"
+    },
+    {
+      "id": "antislop-ui",
+      "label": "antislop-ui",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "antislop",
+      "desc": "antislop reference: Ui"
+    },
+    {
+      "id": "antislop-contrast-check",
+      "label": "Contrast Check",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "antislop",
+      "desc": "antislop tool script: contrast-check.py"
+    },
+    {
+      "id": "antislop-contrast-mcp",
+      "label": "Contrast Mcp",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "antislop",
+      "desc": "antislop tool script: contrast-mcp.py"
+    },
+    {
+      "id": "inspecting-hermes-desktop-dom",
+      "label": "inspecting-hermes-desktop-dom",
+      "type": "skill",
+      "category": "software-development",
+      "desc": "Read the live Hermes desktop DOM/CSS over CDP."
+    },
+    {
+      "id": "test-driven-development",
+      "label": "test-driven-development",
+      "type": "skill",
+      "category": "software-development",
+      "desc": "TDD: enforce RED-GREEN-REFACTOR, tests before code."
+    },
+    {
+      "id": "github",
+      "label": "github",
+      "type": "skill",
+      "category": "software-development",
+      "desc": "GitHub via gh CLI: PRs, issues, reviews, repos, auth."
+    },
+    {
+      "id": "github-auth",
+      "label": "GitHub Authentication Setup",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "github",
+      "desc": "github reference: Auth"
+    },
+    {
+      "id": "github-ci-troubleshooting",
+      "label": "Ci Troubleshooting",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "github",
+      "desc": "github reference: Ci Troubleshooting"
+    },
+    {
+      "id": "github-code-review",
+      "label": "GitHub Code Review",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "github",
+      "desc": "github reference: Code Review"
+    },
+    {
+      "id": "github-conventional-commits",
+      "label": "Conventional Commits",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "github",
+      "desc": "github reference: Conventional Commits"
+    },
+    {
+      "id": "github-github-api-cheatsheet",
+      "label": "GitHub REST API Cheatsheet",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "github",
+      "desc": "github reference: Github Api Cheatsheet"
+    },
+    {
+      "id": "github-issue-to-pr",
+      "label": "GitHub Issue to Pull Request",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "github",
+      "desc": "github reference: Issue To Pr"
+    },
+    {
+      "id": "github-issues",
+      "label": "GitHub Issues Management",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "github",
+      "desc": "github reference: Issues"
+    },
+    {
+      "id": "github-pr-workflow",
+      "label": "GitHub Pull Request Workflow",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "github",
+      "desc": "github reference: Pr Workflow"
+    },
+    {
+      "id": "simplify-code",
+      "label": "simplify-code",
+      "type": "skill",
+      "category": "software-development",
+      "desc": "Parallel 4-agent cleanup of recent code changes."
+    },
+    {
+      "id": "node-inspect-debugger",
+      "label": "node-inspect-debugger",
+      "type": "skill",
+      "category": "software-development",
+      "desc": "Debug Node.js via --inspect + Chrome DevTools Protocol CLI."
+    },
+    {
+      "id": "python-debugpy",
+      "label": "python-debugpy",
+      "type": "skill",
+      "category": "software-development",
+      "desc": "Debug Python: pdb REPL + debugpy remote (DAP)."
+    },
+    {
+      "id": "codebase-inspection",
+      "label": "codebase-inspection",
+      "type": "skill",
+      "category": "software-development",
+      "desc": "Inspect codebases w/ pygount: LOC, languages, ratios."
+    },
+    {
+      "id": "dogfood",
+      "label": "dogfood",
+      "type": "skill",
+      "category": "software-development",
+      "desc": "Exploratory QA of web apps: find bugs, evidence, reports."
+    },
+    {
+      "id": "dogfood-issue-taxonomy",
+      "label": "Issue Taxonomy",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "dogfood",
+      "desc": "dogfood reference: Issue Taxonomy"
+    },
+    {
+      "id": "spike",
+      "label": "spike",
+      "type": "skill",
+      "category": "software-development",
+      "desc": "Throwaway experiments to validate an idea before build."
+    },
+    {
+      "id": "requesting-code-review",
+      "label": "requesting-code-review",
+      "type": "skill",
+      "category": "software-development",
+      "desc": "Pre-commit review: security scan, quality gates, auto-fix."
+    },
+    {
+      "id": "hermes-agent-skill-authoring",
+      "label": "hermes-agent-skill-authoring",
+      "type": "skill",
+      "category": "software-development",
+      "desc": "Author in-repo SKILL.md files: frontmatter and structure."
+    },
+    {
+      "id": "realtime-agent-telemetry-ui",
+      "label": "realtime-agent-telemetry-ui",
+      "type": "skill",
+      "category": "software-development",
+      "desc": "Build real-time graph dashboards and telemetry for agents."
+    },
+    {
+      "id": "realtime-agent-telemetry-ui-dynamic-topology-and-subskills",
+      "label": "Dynamic Topology And Subskills",
+      "type": "subskill",
+      "category": "software-development",
+      "parent": "realtime-agent-telemetry-ui",
+      "desc": "realtime-agent-telemetry-ui reference: Dynamic Topology And Subskills"
+    },
+    {
+      "id": "systematic-debugging",
+      "label": "systematic-debugging",
+      "type": "skill",
+      "category": "software-development",
+      "desc": "4-phase root cause debugging: understand bugs before fixing."
+    },
+    {
+      "id": "blocked-page-recovery",
+      "label": "blocked-page-recovery",
+      "type": "skill",
+      "category": "web",
+      "desc": "Use when a fetch fails: 403/429, paywall, WAF, bot wall."
+    },
+    {
+      "id": "blocked-page-recovery-recover-page",
+      "label": "Recover Page",
+      "type": "subskill",
+      "category": "web",
+      "parent": "blocked-page-recovery",
+      "desc": "blocked-page-recovery tool script: recover_page.py"
+    },
+    {
+      "id": "google-workspace",
+      "label": "google-workspace",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Gmail, Calendar, Drive, Docs, Sheets via gws CLI or Python."
+    },
+    {
+      "id": "google-workspace-daily-brief",
+      "label": "Daily Brief",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "google-workspace",
+      "desc": "google-workspace reference: Daily Brief"
+    },
+    {
+      "id": "google-workspace-gmail-search-syntax",
+      "label": "Gmail Search Syntax",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "google-workspace",
+      "desc": "google-workspace reference: Gmail Search Syntax"
+    },
+    {
+      "id": "google-workspace-google-api",
+      "label": "Google Api",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "google-workspace",
+      "desc": "google-workspace tool script: google_api.py"
+    },
+    {
+      "id": "google-workspace-gws-bridge",
+      "label": "Gws Bridge",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "google-workspace",
+      "desc": "google-workspace tool script: gws_bridge.py"
+    },
+    {
+      "id": "maps",
+      "label": "maps",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Geocode, POIs, routes, timezones via OpenStreetMap/OSRM."
+    },
+    {
+      "id": "maps-maps-client",
+      "label": "Maps Client",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "maps",
+      "desc": "maps tool script: maps_client.py"
+    },
+    {
+      "id": "document-to-action-items",
+      "label": "document-to-action-items",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Extract cited obligations, deadlines, tasks from documents."
+    },
+    {
+      "id": "honcho-memory-integration",
+      "label": "honcho-memory-integration",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Use when configuring or debugging self-hosted Honcho memory."
+    },
+    {
+      "id": "meeting-action-items",
+      "label": "meeting-action-items",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Turn meeting notes into cited decisions, owners, tickets."
+    },
+    {
+      "id": "scheduled-chat-reminders",
+      "label": "scheduled-chat-reminders",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Use when scheduling chat or group reminders via cron jobs."
+    },
+    {
+      "id": "weekly-review-planning",
+      "label": "weekly-review-planning",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Weekly reset: commitments, stalled work, next-week plan."
+    },
+    {
+      "id": "product-price-monitor",
+      "label": "product-price-monitor",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Watch product, flight, or listing prices; alert on target."
+    },
+    {
+      "id": "airtable",
+      "label": "airtable",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Airtable REST API via curl. Records CRUD, filters, upserts."
+    },
+    {
+      "id": "xlsx",
+      "label": "xlsx",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Create, read, edit Excel .xlsx workbooks and CSVs."
+    },
+    {
+      "id": "xlsx-restructuring",
+      "label": "Restructuring",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "xlsx",
+      "desc": "xlsx reference: Restructuring"
+    },
+    {
+      "id": "xlsx-csv-to-xlsx",
+      "label": "Csv To Xlsx",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "xlsx",
+      "desc": "xlsx tool script: csv_to_xlsx.py"
+    },
+    {
+      "id": "xlsx-xlsx-create",
+      "label": "Xlsx Create",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "xlsx",
+      "desc": "xlsx tool script: xlsx_create.py"
+    },
+    {
+      "id": "xlsx-xlsx-edit",
+      "label": "Xlsx Edit",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "xlsx",
+      "desc": "xlsx tool script: xlsx_edit.py"
+    },
+    {
+      "id": "xlsx-xlsx-read",
+      "label": "Xlsx Read",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "xlsx",
+      "desc": "xlsx tool script: xlsx_read.py"
+    },
+    {
+      "id": "xlsx-xlsx-recalc",
+      "label": "Xlsx Recalc",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "xlsx",
+      "desc": "xlsx tool script: xlsx_recalc.py"
+    },
+    {
+      "id": "xlsx-xlsx-restructure",
+      "label": "Xlsx Restructure",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "xlsx",
+      "desc": "xlsx tool script: xlsx_restructure.py"
+    },
+    {
+      "id": "xlsx-xlsx-to-csv",
+      "label": "Xlsx To Csv",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "xlsx",
+      "desc": "xlsx tool script: xlsx_to_csv.py"
+    },
+    {
+      "id": "teams-meeting-pipeline",
+      "label": "teams-meeting-pipeline",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Teams meeting summaries, job replay, Graph subscriptions."
+    },
+    {
+      "id": "docx",
+      "label": "docx",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Create, read, edit, template, and review Word .docx files."
+    },
+    {
+      "id": "docx-revisions-and-comments",
+      "label": "Revisions And Comments",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "docx",
+      "desc": "docx reference: Revisions And Comments"
+    },
+    {
+      "id": "docx-docx-comments",
+      "label": "Docx Comments",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "docx",
+      "desc": "docx tool script: docx_comments.py"
+    },
+    {
+      "id": "docx-docx-common",
+      "label": "Docx Common",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "docx",
+      "desc": "docx tool script: docx_common.py"
+    },
+    {
+      "id": "docx-docx-create",
+      "label": "Docx Create",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "docx",
+      "desc": "docx tool script: docx_create.py"
+    },
+    {
+      "id": "docx-docx-edit",
+      "label": "Docx Edit",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "docx",
+      "desc": "docx tool script: docx_edit.py"
+    },
+    {
+      "id": "docx-docx-read",
+      "label": "Docx Read",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "docx",
+      "desc": "docx tool script: docx_read.py"
+    },
+    {
+      "id": "docx-docx-revisions",
+      "label": "Docx Revisions",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "docx",
+      "desc": "docx tool script: docx_revisions.py"
+    },
+    {
+      "id": "docx-docx-template",
+      "label": "Docx Template",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "docx",
+      "desc": "docx tool script: docx_template.py"
+    },
+    {
+      "id": "collective-wisdom-install",
+      "label": "collective-wisdom-install",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Browse, install, or share team skills with consent."
+    },
+    {
+      "id": "powerpoint",
+      "label": "powerpoint",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Create, read, edit .pptx decks with python-pptx."
+    },
+    {
+      "id": "powerpoint-pptx-create",
+      "label": "Pptx Create",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "powerpoint",
+      "desc": "powerpoint tool script: pptx_create.py"
+    },
+    {
+      "id": "powerpoint-pptx-edit",
+      "label": "Pptx Edit",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "powerpoint",
+      "desc": "powerpoint tool script: pptx_edit.py"
+    },
+    {
+      "id": "powerpoint-pptx-from-template",
+      "label": "Pptx From Template",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "powerpoint",
+      "desc": "powerpoint tool script: pptx_from_template.py"
+    },
+    {
+      "id": "powerpoint-pptx-read",
+      "label": "Pptx Read",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "powerpoint",
+      "desc": "powerpoint tool script: pptx_read.py"
+    },
+    {
+      "id": "powerpoint-pptx-render",
+      "label": "Pptx Render",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "powerpoint",
+      "desc": "powerpoint tool script: pptx_render.py"
+    },
+    {
+      "id": "product-manager",
+      "label": "product-manager",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "SaaS metrics, PRD critiques, roadmaps, and PLG growth."
+    },
+    {
+      "id": "product-manager-ai-product-craft",
+      "label": "AI Product Craft",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "product-manager",
+      "desc": "product-manager domain: Ai Product Craft"
+    },
+    {
+      "id": "product-manager-artifacts-delivery",
+      "label": "PM Artifacts & Delivery",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "product-manager",
+      "desc": "product-manager domain: Artifacts Delivery"
+    },
+    {
+      "id": "product-manager-career-leadership",
+      "label": "Career & Leadership",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "product-manager",
+      "desc": "product-manager domain: Career Leadership"
+    },
+    {
+      "id": "product-manager-discovery-research",
+      "label": "Discovery & Research",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "product-manager",
+      "desc": "product-manager domain: Discovery Research"
+    },
+    {
+      "id": "product-manager-finance-metrics",
+      "label": "Finance & Metrics",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "product-manager",
+      "desc": "product-manager domain: Finance Metrics"
+    },
+    {
+      "id": "product-manager-growth-plg",
+      "label": "Growth & Product-Led Growth",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "product-manager",
+      "desc": "product-manager domain: Growth Plg"
+    },
+    {
+      "id": "product-manager-strategy-positioning",
+      "label": "Strategy & Positioning",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "product-manager",
+      "desc": "product-manager domain: Strategy Positioning"
+    },
+    {
+      "id": "box",
+      "label": "box",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Box manages cloud files, sharing, search, and metadata."
+    },
+    {
+      "id": "box-bulk-operations",
+      "label": "Bulk operations",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "box",
+      "desc": "box reference: Bulk Operations"
+    },
+    {
+      "id": "box-cli-guide",
+      "label": "Box CLI guide",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "box",
+      "desc": "box reference: Cli Guide"
+    },
+    {
+      "id": "box-content-workflows",
+      "label": "Content workflows",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "box",
+      "desc": "box reference: Content Workflows"
+    },
+    {
+      "id": "box-hubs",
+      "label": "Box Hubs",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "box",
+      "desc": "box reference: Hubs"
+    },
+    {
+      "id": "box-oauth-setup",
+      "label": "OAuth setup",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "box",
+      "desc": "box reference: Oauth Setup"
+    },
+    {
+      "id": "box-rest-api",
+      "label": "REST API fallback",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "box",
+      "desc": "box reference: Rest Api"
+    },
+    {
+      "id": "box-sdk-development",
+      "label": "SDK development",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "box",
+      "desc": "box reference: Sdk Development"
+    },
+    {
+      "id": "box-search-and-ai",
+      "label": "Search, metadata, and Box AI",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "box",
+      "desc": "box reference: Search And Ai"
+    },
+    {
+      "id": "pdf",
+      "label": "pdf",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "PDF files: create, read, merge, fill, OCR, edit text."
+    },
+    {
+      "id": "pdf-forms",
+      "label": "Forms",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "pdf",
+      "desc": "pdf reference: Forms"
+    },
+    {
+      "id": "pdf-nano-pdf-editing",
+      "label": "Nano Pdf Editing",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "pdf",
+      "desc": "pdf reference: Nano Pdf Editing"
+    },
+    {
+      "id": "pdf-ocr-extraction",
+      "label": "Ocr Extraction",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "pdf",
+      "desc": "pdf reference: Ocr Extraction"
+    },
+    {
+      "id": "pdf-extract-marker",
+      "label": "Extract Marker",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "pdf",
+      "desc": "pdf tool script: extract_marker.py"
+    },
+    {
+      "id": "pdf-extract-pymupdf",
+      "label": "Extract Pymupdf",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "pdf",
+      "desc": "pdf tool script: extract_pymupdf.py"
+    },
+    {
+      "id": "pdf-pdf-create",
+      "label": "Pdf Create",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "pdf",
+      "desc": "pdf tool script: pdf_create.py"
+    },
+    {
+      "id": "pdf-pdf-fill-form",
+      "label": "Pdf Fill Form",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "pdf",
+      "desc": "pdf tool script: pdf_fill_form.py"
+    },
+    {
+      "id": "pdf-pdf-form-layout",
+      "label": "Pdf Form Layout",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "pdf",
+      "desc": "pdf tool script: pdf_form_layout.py"
+    },
+    {
+      "id": "notion",
+      "label": "notion",
+      "type": "skill",
+      "category": "productivity",
+      "desc": "Notion API + ntn CLI: pages, databases, markdown, Workers."
+    },
+    {
+      "id": "notion-block-types",
+      "label": "Notion Block Types",
+      "type": "subskill",
+      "category": "productivity",
+      "parent": "notion",
+      "desc": "notion reference: Block Types"
+    },
+    {
+      "id": "ascii-video",
+      "label": "ascii-video",
+      "type": "skill",
+      "category": "creative",
+      "desc": "ASCII video: convert video/audio to colored ASCII MP4/GIF."
+    },
+    {
+      "id": "ascii-video-architecture",
+      "label": "Architecture Reference",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "ascii-video",
+      "desc": "ascii-video reference: Architecture"
+    },
+    {
+      "id": "ascii-video-composition",
+      "label": "Composition",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "ascii-video",
+      "desc": "ascii-video reference: Composition"
+    },
+    {
+      "id": "ascii-video-effects",
+      "label": "Effect Catalog",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "ascii-video",
+      "desc": "ascii-video reference: Effects"
+    },
+    {
+      "id": "ascii-video-inputs",
+      "label": "Input Sources",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "ascii-video",
+      "desc": "ascii-video reference: Inputs"
+    },
+    {
+      "id": "ascii-video-optimization",
+      "label": "Optimization Reference",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "ascii-video",
+      "desc": "ascii-video reference: Optimization"
+    },
+    {
+      "id": "ascii-video-scenes",
+      "label": "Scenes",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "ascii-video",
+      "desc": "ascii-video reference: Scenes"
+    },
+    {
+      "id": "ascii-video-shaders",
+      "label": "Shaders",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "ascii-video",
+      "desc": "ascii-video reference: Shaders"
+    },
+    {
+      "id": "ascii-video-troubleshooting",
+      "label": "Troubleshooting Reference",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "ascii-video",
+      "desc": "ascii-video reference: Troubleshooting"
+    },
+    {
+      "id": "p5js",
+      "label": "p5js",
+      "type": "skill",
+      "category": "creative",
+      "desc": "p5.js sketches: gen art, shaders, interactive, 3D."
+    },
+    {
+      "id": "p5js-animation",
+      "label": "Animation",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "p5js",
+      "desc": "p5js reference: Animation"
+    },
+    {
+      "id": "p5js-color-systems",
+      "label": "Color Systems",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "p5js",
+      "desc": "p5js reference: Color Systems"
+    },
+    {
+      "id": "p5js-core-api",
+      "label": "Core API Reference",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "p5js",
+      "desc": "p5js reference: Core Api"
+    },
+    {
+      "id": "p5js-export-pipeline",
+      "label": "Export Pipeline",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "p5js",
+      "desc": "p5js reference: Export Pipeline"
+    },
+    {
+      "id": "p5js-interaction",
+      "label": "Interaction",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "p5js",
+      "desc": "p5js reference: Interaction"
+    },
+    {
+      "id": "p5js-shapes-and-geometry",
+      "label": "Shapes and Geometry",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "p5js",
+      "desc": "p5js reference: Shapes And Geometry"
+    },
+    {
+      "id": "p5js-troubleshooting",
+      "label": "Troubleshooting",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "p5js",
+      "desc": "p5js reference: Troubleshooting"
+    },
+    {
+      "id": "p5js-typography",
+      "label": "Typography",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "p5js",
+      "desc": "p5js reference: Typography"
+    },
+    {
+      "id": "manim-video",
+      "label": "manim-video",
+      "type": "skill",
+      "category": "creative",
+      "desc": "Manim CE animations: 3Blue1Brown math/algo videos."
+    },
+    {
+      "id": "manim-video-animation-design-thinking",
+      "label": "Animation Design Thinking",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "manim-video",
+      "desc": "manim-video reference: Animation Design Thinking"
+    },
+    {
+      "id": "manim-video-animations",
+      "label": "Animations Reference",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "manim-video",
+      "desc": "manim-video reference: Animations"
+    },
+    {
+      "id": "manim-video-camera-and-3d",
+      "label": "Camera and 3D Reference",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "manim-video",
+      "desc": "manim-video reference: Camera And 3D"
+    },
+    {
+      "id": "manim-video-decorations",
+      "label": "Decorations",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "manim-video",
+      "desc": "manim-video reference: Decorations"
+    },
+    {
+      "id": "manim-video-equations",
+      "label": "Equations",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "manim-video",
+      "desc": "manim-video reference: Equations"
+    },
+    {
+      "id": "manim-video-graphs-and-data",
+      "label": "Graphs And Data",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "manim-video",
+      "desc": "manim-video reference: Graphs And Data"
+    },
+    {
+      "id": "manim-video-mobjects",
+      "label": "Mobjects Reference",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "manim-video",
+      "desc": "manim-video reference: Mobjects"
+    },
+    {
+      "id": "manim-video-paper-explainer",
+      "label": "Paper Explainer Workflow",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "manim-video",
+      "desc": "manim-video reference: Paper Explainer"
+    },
+    {
+      "id": "humanizer",
+      "label": "humanizer",
+      "type": "skill",
+      "category": "creative",
+      "desc": "Humanize text: strip AI-isms and add real voice."
+    },
+    {
+      "id": "songwriting-and-ai-music",
+      "label": "songwriting-and-ai-music",
+      "type": "skill",
+      "category": "creative",
+      "desc": "Songwriting craft and Suno AI music prompts."
+    },
+    {
+      "id": "baoyu-infographic",
+      "label": "baoyu-infographic",
+      "type": "skill",
+      "category": "creative",
+      "desc": "Infographics: 21 layouts x 21 styles (\u4fe1\u606f\u56fe, \u53ef\u89c6\u5316)."
+    },
+    {
+      "id": "baoyu-infographic-analysis-framework",
+      "label": "Analysis Framework",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "baoyu-infographic",
+      "desc": "baoyu-infographic reference: Analysis Framework"
+    },
+    {
+      "id": "baoyu-infographic-base-prompt",
+      "label": "Image Specifications",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "baoyu-infographic",
+      "desc": "baoyu-infographic reference: Base Prompt"
+    },
+    {
+      "id": "baoyu-infographic-structured-content-template",
+      "label": "Structured Content Template",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "baoyu-infographic",
+      "desc": "baoyu-infographic reference: Structured Content Template"
+    },
+    {
+      "id": "architecture-diagram",
+      "label": "architecture-diagram",
+      "type": "skill",
+      "category": "creative",
+      "desc": "Dark-themed SVG architecture/cloud/infra diagrams as HTML."
+    },
+    {
+      "id": "claude-design",
+      "label": "claude-design",
+      "type": "skill",
+      "category": "creative",
+      "desc": "Design one-off HTML artifacts (landing, deck, prototype)."
+    },
+    {
+      "id": "popular-web-designs",
+      "label": "popular-web-designs",
+      "type": "skill",
+      "category": "creative",
+      "desc": "54 real design systems (Stripe, Linear, Vercel) as HTML/CSS."
+    },
+    {
+      "id": "popular-web-designs-airbnb",
+      "label": "Airbnb",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "popular-web-designs",
+      "desc": "popular-web-designs template: Airbnb"
+    },
+    {
+      "id": "popular-web-designs-airtable",
+      "label": "Airtable",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "popular-web-designs",
+      "desc": "popular-web-designs template: Airtable"
+    },
+    {
+      "id": "popular-web-designs-apple",
+      "label": "Apple",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "popular-web-designs",
+      "desc": "popular-web-designs template: Apple"
+    },
+    {
+      "id": "popular-web-designs-bmw",
+      "label": "Bmw",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "popular-web-designs",
+      "desc": "popular-web-designs template: Bmw"
+    },
+    {
+      "id": "popular-web-designs-cal",
+      "label": "Cal",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "popular-web-designs",
+      "desc": "popular-web-designs template: Cal"
+    },
+    {
+      "id": "popular-web-designs-claude",
+      "label": "Claude",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "popular-web-designs",
+      "desc": "popular-web-designs template: Claude"
+    },
+    {
+      "id": "popular-web-designs-clay",
+      "label": "Clay",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "popular-web-designs",
+      "desc": "popular-web-designs template: Clay"
+    },
+    {
+      "id": "popular-web-designs-clickhouse",
+      "label": "Clickhouse",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "popular-web-designs",
+      "desc": "popular-web-designs template: Clickhouse"
+    },
+    {
+      "id": "design-md",
+      "label": "design-md",
+      "type": "skill",
+      "category": "creative",
+      "desc": "Author/validate/export Google's DESIGN.md token spec files."
+    },
+    {
+      "id": "design-md-starter",
+      "label": "Starter",
+      "type": "subskill",
+      "category": "creative",
+      "parent": "design-md",
+      "desc": "design-md template: Starter"
+    },
+    {
+      "id": "sdlc-review",
+      "label": "sdlc-review",
+      "type": "skill",
+      "category": "devops",
+      "desc": "Review Kanban handoffs and route verified outcomes."
+    },
+    {
+      "id": "computer-use",
+      "label": "computer-use",
+      "type": "skill",
+      "category": "autonomous-ai-agents",
+      "desc": "Drive the desktop background-first; escalate on signal."
+    },
+    {
+      "id": "claude-code",
+      "label": "claude-code",
+      "type": "skill",
+      "category": "autonomous-ai-agents",
+      "desc": "Delegate coding to Claude Code CLI (features, PRs)."
+    },
+    {
+      "id": "codex",
+      "label": "codex",
+      "type": "skill",
+      "category": "autonomous-ai-agents",
+      "desc": "Delegate coding to OpenAI Codex CLI (features, PRs)."
+    },
+    {
+      "id": "vibe",
+      "label": "vibe",
+      "type": "skill",
+      "category": "autonomous-ai-agents",
+      "desc": "Vibe Code Orchestrator (VCO) is a governed runtime entry that freezes requirements, bounds execution, and enforces verification and phase cleanup."
+    },
+    {
+      "id": "vibe-do",
+      "label": "vibe-do Protocol",
+      "type": "subskill",
+      "category": "autonomous-ai-agents",
+      "parent": "vibe",
+      "desc": "vibe protocol: Do"
+    },
+    {
+      "id": "vibe-retro",
+      "label": "vibe-retro Protocol",
+      "type": "subskill",
+      "category": "autonomous-ai-agents",
+      "parent": "vibe",
+      "desc": "vibe protocol: Retro"
+    },
+    {
+      "id": "vibe-review",
+      "label": "vibe-review Protocol",
+      "type": "subskill",
+      "category": "autonomous-ai-agents",
+      "parent": "vibe",
+      "desc": "vibe protocol: Review"
+    },
+    {
+      "id": "vibe-runtime",
+      "label": "vibe-runtime Protocol",
+      "type": "subskill",
+      "category": "autonomous-ai-agents",
+      "parent": "vibe",
+      "desc": "vibe protocol: Runtime"
+    },
+    {
+      "id": "vibe-team",
+      "label": "vibe-team Protocol",
+      "type": "subskill",
+      "category": "autonomous-ai-agents",
+      "parent": "vibe",
+      "desc": "vibe protocol: Team"
+    },
+    {
+      "id": "vibe-think",
+      "label": "vibe-think Protocol",
+      "type": "subskill",
+      "category": "autonomous-ai-agents",
+      "parent": "vibe",
+      "desc": "vibe protocol: Think"
+    },
+    {
+      "id": "hermes-agent",
+      "label": "hermes-agent",
+      "type": "skill",
+      "category": "autonomous-ai-agents",
+      "desc": "Use, configure, theme, extend, and orchestrate Hermes Agent."
+    },
+    {
+      "id": "hermes-agent-background-systems",
+      "label": "Durable & Background Systems",
+      "type": "subskill",
+      "category": "autonomous-ai-agents",
+      "parent": "hermes-agent",
+      "desc": "hermes-agent reference: Background Systems"
+    },
+    {
+      "id": "hermes-agent-cli-reference",
+      "label": "Hermes CLI Reference",
+      "type": "subskill",
+      "category": "autonomous-ai-agents",
+      "parent": "hermes-agent",
+      "desc": "hermes-agent reference: Cli Reference"
+    },
+    {
+      "id": "hermes-agent-configuration",
+      "label": "Configuration",
+      "type": "subskill",
+      "category": "autonomous-ai-agents",
+      "parent": "hermes-agent",
+      "desc": "hermes-agent reference: Configuration"
+    },
+    {
+      "id": "hermes-agent-contributor-guide",
+      "label": "Contributor Quick Reference",
+      "type": "subskill",
+      "category": "autonomous-ai-agents",
+      "parent": "hermes-agent",
+      "desc": "hermes-agent reference: Contributor Guide"
+    },
+    {
+      "id": "hermes-agent-delegate-task-concurrency-diagnosis",
+      "label": "Delegate Task Concurrency Diagnosis",
+      "type": "subskill",
+      "category": "autonomous-ai-agents",
+      "parent": "hermes-agent",
+      "desc": "hermes-agent reference: Delegate Task Concurrency Diagnosis"
+    },
+    {
+      "id": "hermes-agent-desktop-plugins",
+      "label": "Desktop Plugins",
+      "type": "subskill",
+      "category": "autonomous-ai-agents",
+      "parent": "hermes-agent",
+      "desc": "hermes-agent reference: Desktop Plugins"
+    },
+    {
+      "id": "hermes-agent-native-mcp",
+      "label": "Native MCP Client",
+      "type": "subskill",
+      "category": "autonomous-ai-agents",
+      "parent": "hermes-agent",
+      "desc": "hermes-agent reference: Native Mcp"
+    },
+    {
+      "id": "hermes-agent-petdex",
+      "label": "Petdex",
+      "type": "subskill",
+      "category": "autonomous-ai-agents",
+      "parent": "hermes-agent",
+      "desc": "hermes-agent reference: Petdex"
+    },
+    {
+      "id": "opencode",
+      "label": "opencode",
+      "type": "skill",
+      "category": "autonomous-ai-agents",
+      "desc": "Delegate coding to OpenCode CLI (features, PR review)."
+    },
+    {
+      "id": "findmy",
+      "label": "findmy",
+      "type": "skill",
+      "category": "apple",
+      "desc": "Track Apple devices/AirTags via FindMy.app on macOS."
+    },
+    {
+      "id": "apple-notes",
+      "label": "apple-notes",
+      "type": "skill",
+      "category": "apple",
+      "desc": "Manage Apple Notes via memo CLI: create, search, edit."
+    },
+    {
+      "id": "apple-reminders",
+      "label": "apple-reminders",
+      "type": "skill",
+      "category": "apple",
+      "desc": "Apple Reminders via remindctl: add, list, complete."
+    },
+    {
+      "id": "imessage",
+      "label": "imessage",
+      "type": "skill",
+      "category": "apple",
+      "desc": "Send and receive iMessages/SMS via the imsg CLI on macOS."
+    },
+    {
+      "id": "apple",
+      "label": "APPLE",
+      "type": "cluster",
+      "category": "apple",
+      "desc": "Cluster category: apple"
+    },
+    {
+      "id": "autonomous-ai-agents",
+      "label": "AUTONOMOUS AI AGENTS",
+      "type": "cluster",
+      "category": "autonomous-ai-agents",
+      "desc": "Cluster category: autonomous-ai-agents"
+    },
+    {
+      "id": "creative",
+      "label": "CREATIVE",
+      "type": "cluster",
+      "category": "creative",
+      "desc": "Cluster category: creative"
+    },
+    {
+      "id": "devops",
+      "label": "DEVOPS",
+      "type": "cluster",
+      "category": "devops",
+      "desc": "Cluster category: devops"
+    },
+    {
+      "id": "email",
+      "label": "EMAIL",
+      "type": "cluster",
+      "category": "email",
+      "desc": "Cluster category: email"
+    },
+    {
+      "id": "media",
+      "label": "MEDIA",
+      "type": "cluster",
+      "category": "media",
+      "desc": "Cluster category: media"
+    },
+    {
+      "id": "note-taking",
+      "label": "NOTE TAKING",
+      "type": "cluster",
+      "category": "note-taking",
+      "desc": "Cluster category: note-taking"
+    },
+    {
+      "id": "productivity",
+      "label": "PRODUCTIVITY",
+      "type": "cluster",
+      "category": "productivity",
+      "desc": "Cluster category: productivity"
+    },
+    {
+      "id": "research",
+      "label": "RESEARCH",
+      "type": "cluster",
+      "category": "research",
+      "desc": "Cluster category: research"
+    },
+    {
+      "id": "social-media",
+      "label": "SOCIAL MEDIA",
+      "type": "cluster",
+      "category": "social-media",
+      "desc": "Cluster category: social-media"
+    },
+    {
+      "id": "software-development",
+      "label": "SOFTWARE DEVELOPMENT",
+      "type": "cluster",
+      "category": "software-development",
+      "desc": "Cluster category: software-development"
+    },
+    {
+      "id": "web",
+      "label": "WEB",
+      "type": "cluster",
+      "category": "web",
+      "desc": "Cluster category: web"
+    }
+  ],
+  "links": [
+    {
+      "source": "email",
+      "target": "email-inbox-triage",
+      "value": 1
+    },
+    {
+      "source": "email",
+      "target": "himalaya",
+      "value": 1
+    },
+    {
+      "source": "himalaya",
+      "target": "himalaya-configuration",
+      "value": 1
+    },
+    {
+      "source": "himalaya",
+      "target": "himalaya-message-composition",
+      "value": 1
+    },
+    {
+      "source": "media",
+      "target": "gif-search",
+      "value": 1
+    },
+    {
+      "source": "media",
+      "target": "youtube-content",
+      "value": 1
+    },
+    {
+      "source": "youtube-content",
+      "target": "youtube-content-output-formats",
+      "value": 1
+    },
+    {
+      "source": "youtube-content",
+      "target": "youtube-content-fetch-transcript",
+      "value": 1
+    },
+    {
+      "source": "media",
+      "target": "songsee",
+      "value": 1
+    },
+    {
+      "source": "social-media",
+      "target": "xurl",
+      "value": 1
+    },
+    {
+      "source": "note-taking",
+      "target": "obsidian",
+      "value": 1
+    },
+    {
+      "source": "research",
+      "target": "competitor-news-monitor",
+      "value": 1
+    },
+    {
+      "source": "research",
+      "target": "llm-wiki",
+      "value": 1
+    },
+    {
+      "source": "research",
+      "target": "arxiv",
+      "value": 1
+    },
+    {
+      "source": "arxiv",
+      "target": "arxiv-search-arxiv",
+      "value": 1
+    },
+    {
+      "source": "research",
+      "target": "grounded-citations",
+      "value": 1
+    },
+    {
+      "source": "grounded-citations",
+      "target": "grounded-citations-citation-formats",
+      "value": 1
+    },
+    {
+      "source": "grounded-citations",
+      "target": "grounded-citations-grounding-rationale",
+      "value": 1
+    },
+    {
+      "source": "grounded-citations",
+      "target": "grounded-citations-sources",
+      "value": 1
+    },
+    {
+      "source": "software-development",
+      "target": "antislop",
+      "value": 1
+    },
+    {
+      "source": "antislop",
+      "target": "antislop-38-rules",
+      "value": 1
+    },
+    {
+      "source": "antislop",
+      "target": "antislop-code-comments",
+      "value": 1
+    },
+    {
+      "source": "antislop",
+      "target": "antislop-copywriting",
+      "value": 1
+    },
+    {
+      "source": "antislop",
+      "target": "antislop-human-accessibility",
+      "value": 1
+    },
+    {
+      "source": "antislop",
+      "target": "antislop-mobile-layout",
+      "value": 1
+    },
+    {
+      "source": "antislop",
+      "target": "antislop-ui",
+      "value": 1
+    },
+    {
+      "source": "antislop",
+      "target": "antislop-contrast-check",
+      "value": 1
+    },
+    {
+      "source": "antislop",
+      "target": "antislop-contrast-mcp",
+      "value": 1
+    },
+    {
+      "source": "software-development",
+      "target": "inspecting-hermes-desktop-dom",
+      "value": 1
+    },
+    {
+      "source": "software-development",
+      "target": "test-driven-development",
+      "value": 1
+    },
+    {
+      "source": "software-development",
+      "target": "github",
+      "value": 1
+    },
+    {
+      "source": "github",
+      "target": "github-auth",
+      "value": 1
+    },
+    {
+      "source": "github",
+      "target": "github-ci-troubleshooting",
+      "value": 1
+    },
+    {
+      "source": "github",
+      "target": "github-code-review",
+      "value": 1
+    },
+    {
+      "source": "github",
+      "target": "github-conventional-commits",
+      "value": 1
+    },
+    {
+      "source": "github",
+      "target": "github-github-api-cheatsheet",
+      "value": 1
+    },
+    {
+      "source": "github",
+      "target": "github-issue-to-pr",
+      "value": 1
+    },
+    {
+      "source": "github",
+      "target": "github-issues",
+      "value": 1
+    },
+    {
+      "source": "github",
+      "target": "github-pr-workflow",
+      "value": 1
+    },
+    {
+      "source": "software-development",
+      "target": "simplify-code",
+      "value": 1
+    },
+    {
+      "source": "software-development",
+      "target": "node-inspect-debugger",
+      "value": 1
+    },
+    {
+      "source": "software-development",
+      "target": "python-debugpy",
+      "value": 1
+    },
+    {
+      "source": "software-development",
+      "target": "codebase-inspection",
+      "value": 1
+    },
+    {
+      "source": "software-development",
+      "target": "dogfood",
+      "value": 1
+    },
+    {
+      "source": "dogfood",
+      "target": "dogfood-issue-taxonomy",
+      "value": 1
+    },
+    {
+      "source": "software-development",
+      "target": "spike",
+      "value": 1
+    },
+    {
+      "source": "software-development",
+      "target": "requesting-code-review",
+      "value": 1
+    },
+    {
+      "source": "software-development",
+      "target": "hermes-agent-skill-authoring",
+      "value": 1
+    },
+    {
+      "source": "software-development",
+      "target": "realtime-agent-telemetry-ui",
+      "value": 1
+    },
+    {
+      "source": "realtime-agent-telemetry-ui",
+      "target": "realtime-agent-telemetry-ui-dynamic-topology-and-subskills",
+      "value": 1
+    },
+    {
+      "source": "software-development",
+      "target": "systematic-debugging",
+      "value": 1
+    },
+    {
+      "source": "web",
+      "target": "blocked-page-recovery",
+      "value": 1
+    },
+    {
+      "source": "blocked-page-recovery",
+      "target": "blocked-page-recovery-recover-page",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "google-workspace",
+      "value": 1
+    },
+    {
+      "source": "google-workspace",
+      "target": "google-workspace-daily-brief",
+      "value": 1
+    },
+    {
+      "source": "google-workspace",
+      "target": "google-workspace-gmail-search-syntax",
+      "value": 1
+    },
+    {
+      "source": "google-workspace",
+      "target": "google-workspace-google-api",
+      "value": 1
+    },
+    {
+      "source": "google-workspace",
+      "target": "google-workspace-gws-bridge",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "maps",
+      "value": 1
+    },
+    {
+      "source": "maps",
+      "target": "maps-maps-client",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "document-to-action-items",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "honcho-memory-integration",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "meeting-action-items",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "scheduled-chat-reminders",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "weekly-review-planning",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "product-price-monitor",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "airtable",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "xlsx",
+      "value": 1
+    },
+    {
+      "source": "xlsx",
+      "target": "xlsx-restructuring",
+      "value": 1
+    },
+    {
+      "source": "xlsx",
+      "target": "xlsx-csv-to-xlsx",
+      "value": 1
+    },
+    {
+      "source": "xlsx",
+      "target": "xlsx-xlsx-create",
+      "value": 1
+    },
+    {
+      "source": "xlsx",
+      "target": "xlsx-xlsx-edit",
+      "value": 1
+    },
+    {
+      "source": "xlsx",
+      "target": "xlsx-xlsx-read",
+      "value": 1
+    },
+    {
+      "source": "xlsx",
+      "target": "xlsx-xlsx-recalc",
+      "value": 1
+    },
+    {
+      "source": "xlsx",
+      "target": "xlsx-xlsx-restructure",
+      "value": 1
+    },
+    {
+      "source": "xlsx",
+      "target": "xlsx-xlsx-to-csv",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "teams-meeting-pipeline",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "docx",
+      "value": 1
+    },
+    {
+      "source": "docx",
+      "target": "docx-revisions-and-comments",
+      "value": 1
+    },
+    {
+      "source": "docx",
+      "target": "docx-docx-comments",
+      "value": 1
+    },
+    {
+      "source": "docx",
+      "target": "docx-docx-common",
+      "value": 1
+    },
+    {
+      "source": "docx",
+      "target": "docx-docx-create",
+      "value": 1
+    },
+    {
+      "source": "docx",
+      "target": "docx-docx-edit",
+      "value": 1
+    },
+    {
+      "source": "docx",
+      "target": "docx-docx-read",
+      "value": 1
+    },
+    {
+      "source": "docx",
+      "target": "docx-docx-revisions",
+      "value": 1
+    },
+    {
+      "source": "docx",
+      "target": "docx-docx-template",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "collective-wisdom-install",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "powerpoint",
+      "value": 1
+    },
+    {
+      "source": "powerpoint",
+      "target": "powerpoint-pptx-create",
+      "value": 1
+    },
+    {
+      "source": "powerpoint",
+      "target": "powerpoint-pptx-edit",
+      "value": 1
+    },
+    {
+      "source": "powerpoint",
+      "target": "powerpoint-pptx-from-template",
+      "value": 1
+    },
+    {
+      "source": "powerpoint",
+      "target": "powerpoint-pptx-read",
+      "value": 1
+    },
+    {
+      "source": "powerpoint",
+      "target": "powerpoint-pptx-render",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "product-manager",
+      "value": 1
+    },
+    {
+      "source": "product-manager",
+      "target": "product-manager-ai-product-craft",
+      "value": 1
+    },
+    {
+      "source": "product-manager",
+      "target": "product-manager-artifacts-delivery",
+      "value": 1
+    },
+    {
+      "source": "product-manager",
+      "target": "product-manager-career-leadership",
+      "value": 1
+    },
+    {
+      "source": "product-manager",
+      "target": "product-manager-discovery-research",
+      "value": 1
+    },
+    {
+      "source": "product-manager",
+      "target": "product-manager-finance-metrics",
+      "value": 1
+    },
+    {
+      "source": "product-manager",
+      "target": "product-manager-growth-plg",
+      "value": 1
+    },
+    {
+      "source": "product-manager",
+      "target": "product-manager-strategy-positioning",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "box",
+      "value": 1
+    },
+    {
+      "source": "box",
+      "target": "box-bulk-operations",
+      "value": 1
+    },
+    {
+      "source": "box",
+      "target": "box-cli-guide",
+      "value": 1
+    },
+    {
+      "source": "box",
+      "target": "box-content-workflows",
+      "value": 1
+    },
+    {
+      "source": "box",
+      "target": "box-hubs",
+      "value": 1
+    },
+    {
+      "source": "box",
+      "target": "box-oauth-setup",
+      "value": 1
+    },
+    {
+      "source": "box",
+      "target": "box-rest-api",
+      "value": 1
+    },
+    {
+      "source": "box",
+      "target": "box-sdk-development",
+      "value": 1
+    },
+    {
+      "source": "box",
+      "target": "box-search-and-ai",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "pdf",
+      "value": 1
+    },
+    {
+      "source": "pdf",
+      "target": "pdf-forms",
+      "value": 1
+    },
+    {
+      "source": "pdf",
+      "target": "pdf-nano-pdf-editing",
+      "value": 1
+    },
+    {
+      "source": "pdf",
+      "target": "pdf-ocr-extraction",
+      "value": 1
+    },
+    {
+      "source": "pdf",
+      "target": "pdf-extract-marker",
+      "value": 1
+    },
+    {
+      "source": "pdf",
+      "target": "pdf-extract-pymupdf",
+      "value": 1
+    },
+    {
+      "source": "pdf",
+      "target": "pdf-pdf-create",
+      "value": 1
+    },
+    {
+      "source": "pdf",
+      "target": "pdf-pdf-fill-form",
+      "value": 1
+    },
+    {
+      "source": "pdf",
+      "target": "pdf-pdf-form-layout",
+      "value": 1
+    },
+    {
+      "source": "productivity",
+      "target": "notion",
+      "value": 1
+    },
+    {
+      "source": "notion",
+      "target": "notion-block-types",
+      "value": 1
+    },
+    {
+      "source": "creative",
+      "target": "ascii-video",
+      "value": 1
+    },
+    {
+      "source": "ascii-video",
+      "target": "ascii-video-architecture",
+      "value": 1
+    },
+    {
+      "source": "ascii-video",
+      "target": "ascii-video-composition",
+      "value": 1
+    },
+    {
+      "source": "ascii-video",
+      "target": "ascii-video-effects",
+      "value": 1
+    },
+    {
+      "source": "ascii-video",
+      "target": "ascii-video-inputs",
+      "value": 1
+    },
+    {
+      "source": "ascii-video",
+      "target": "ascii-video-optimization",
+      "value": 1
+    },
+    {
+      "source": "ascii-video",
+      "target": "ascii-video-scenes",
+      "value": 1
+    },
+    {
+      "source": "ascii-video",
+      "target": "ascii-video-shaders",
+      "value": 1
+    },
+    {
+      "source": "ascii-video",
+      "target": "ascii-video-troubleshooting",
+      "value": 1
+    },
+    {
+      "source": "creative",
+      "target": "p5js",
+      "value": 1
+    },
+    {
+      "source": "p5js",
+      "target": "p5js-animation",
+      "value": 1
+    },
+    {
+      "source": "p5js",
+      "target": "p5js-color-systems",
+      "value": 1
+    },
+    {
+      "source": "p5js",
+      "target": "p5js-core-api",
+      "value": 1
+    },
+    {
+      "source": "p5js",
+      "target": "p5js-export-pipeline",
+      "value": 1
+    },
+    {
+      "source": "p5js",
+      "target": "p5js-interaction",
+      "value": 1
+    },
+    {
+      "source": "p5js",
+      "target": "p5js-shapes-and-geometry",
+      "value": 1
+    },
+    {
+      "source": "p5js",
+      "target": "p5js-troubleshooting",
+      "value": 1
+    },
+    {
+      "source": "p5js",
+      "target": "p5js-typography",
+      "value": 1
+    },
+    {
+      "source": "creative",
+      "target": "manim-video",
+      "value": 1
+    },
+    {
+      "source": "manim-video",
+      "target": "manim-video-animation-design-thinking",
+      "value": 1
+    },
+    {
+      "source": "manim-video",
+      "target": "manim-video-animations",
+      "value": 1
+    },
+    {
+      "source": "manim-video",
+      "target": "manim-video-camera-and-3d",
+      "value": 1
+    },
+    {
+      "source": "manim-video",
+      "target": "manim-video-decorations",
+      "value": 1
+    },
+    {
+      "source": "manim-video",
+      "target": "manim-video-equations",
+      "value": 1
+    },
+    {
+      "source": "manim-video",
+      "target": "manim-video-graphs-and-data",
+      "value": 1
+    },
+    {
+      "source": "manim-video",
+      "target": "manim-video-mobjects",
+      "value": 1
+    },
+    {
+      "source": "manim-video",
+      "target": "manim-video-paper-explainer",
+      "value": 1
+    },
+    {
+      "source": "creative",
+      "target": "humanizer",
+      "value": 1
+    },
+    {
+      "source": "creative",
+      "target": "songwriting-and-ai-music",
+      "value": 1
+    },
+    {
+      "source": "creative",
+      "target": "baoyu-infographic",
+      "value": 1
+    },
+    {
+      "source": "baoyu-infographic",
+      "target": "baoyu-infographic-analysis-framework",
+      "value": 1
+    },
+    {
+      "source": "baoyu-infographic",
+      "target": "baoyu-infographic-base-prompt",
+      "value": 1
+    },
+    {
+      "source": "baoyu-infographic",
+      "target": "baoyu-infographic-structured-content-template",
+      "value": 1
+    },
+    {
+      "source": "creative",
+      "target": "architecture-diagram",
+      "value": 1
+    },
+    {
+      "source": "creative",
+      "target": "claude-design",
+      "value": 1
+    },
+    {
+      "source": "creative",
+      "target": "popular-web-designs",
+      "value": 1
+    },
+    {
+      "source": "popular-web-designs",
+      "target": "popular-web-designs-airbnb",
+      "value": 1
+    },
+    {
+      "source": "popular-web-designs",
+      "target": "popular-web-designs-airtable",
+      "value": 1
+    },
+    {
+      "source": "popular-web-designs",
+      "target": "popular-web-designs-apple",
+      "value": 1
+    },
+    {
+      "source": "popular-web-designs",
+      "target": "popular-web-designs-bmw",
+      "value": 1
+    },
+    {
+      "source": "popular-web-designs",
+      "target": "popular-web-designs-cal",
+      "value": 1
+    },
+    {
+      "source": "popular-web-designs",
+      "target": "popular-web-designs-claude",
+      "value": 1
+    },
+    {
+      "source": "popular-web-designs",
+      "target": "popular-web-designs-clay",
+      "value": 1
+    },
+    {
+      "source": "popular-web-designs",
+      "target": "popular-web-designs-clickhouse",
+      "value": 1
+    },
+    {
+      "source": "creative",
+      "target": "design-md",
+      "value": 1
+    },
+    {
+      "source": "design-md",
+      "target": "design-md-starter",
+      "value": 1
+    },
+    {
+      "source": "devops",
+      "target": "sdlc-review",
+      "value": 1
+    },
+    {
+      "source": "autonomous-ai-agents",
+      "target": "computer-use",
+      "value": 1
+    },
+    {
+      "source": "autonomous-ai-agents",
+      "target": "claude-code",
+      "value": 1
+    },
+    {
+      "source": "autonomous-ai-agents",
+      "target": "codex",
+      "value": 1
+    },
+    {
+      "source": "autonomous-ai-agents",
+      "target": "vibe",
+      "value": 1
+    },
+    {
+      "source": "vibe",
+      "target": "vibe-do",
+      "value": 1
+    },
+    {
+      "source": "vibe",
+      "target": "vibe-retro",
+      "value": 1
+    },
+    {
+      "source": "vibe",
+      "target": "vibe-review",
+      "value": 1
+    },
+    {
+      "source": "vibe",
+      "target": "vibe-runtime",
+      "value": 1
+    },
+    {
+      "source": "vibe",
+      "target": "vibe-team",
+      "value": 1
+    },
+    {
+      "source": "vibe",
+      "target": "vibe-think",
+      "value": 1
+    },
+    {
+      "source": "autonomous-ai-agents",
+      "target": "hermes-agent",
+      "value": 1
+    },
+    {
+      "source": "hermes-agent",
+      "target": "hermes-agent-background-systems",
+      "value": 1
+    },
+    {
+      "source": "hermes-agent",
+      "target": "hermes-agent-cli-reference",
+      "value": 1
+    },
+    {
+      "source": "hermes-agent",
+      "target": "hermes-agent-configuration",
+      "value": 1
+    },
+    {
+      "source": "hermes-agent",
+      "target": "hermes-agent-contributor-guide",
+      "value": 1
+    },
+    {
+      "source": "hermes-agent",
+      "target": "hermes-agent-delegate-task-concurrency-diagnosis",
+      "value": 1
+    },
+    {
+      "source": "hermes-agent",
+      "target": "hermes-agent-desktop-plugins",
+      "value": 1
+    },
+    {
+      "source": "hermes-agent",
+      "target": "hermes-agent-native-mcp",
+      "value": 1
+    },
+    {
+      "source": "hermes-agent",
+      "target": "hermes-agent-petdex",
+      "value": 1
+    },
+    {
+      "source": "autonomous-ai-agents",
+      "target": "opencode",
+      "value": 1
+    },
+    {
+      "source": "apple",
+      "target": "findmy",
+      "value": 1
+    },
+    {
+      "source": "apple",
+      "target": "apple-notes",
+      "value": 1
+    },
+    {
+      "source": "apple",
+      "target": "apple-reminders",
+      "value": 1
+    },
+    {
+      "source": "apple",
+      "target": "imessage",
+      "value": 1
+    },
+    {
+      "source": "core",
+      "target": "apple",
+      "value": 4
+    },
+    {
+      "source": "core",
+      "target": "autonomous-ai-agents",
+      "value": 4
+    },
+    {
+      "source": "core",
+      "target": "creative",
+      "value": 4
+    },
+    {
+      "source": "core",
+      "target": "devops",
+      "value": 4
+    },
+    {
+      "source": "core",
+      "target": "email",
+      "value": 4
+    },
+    {
+      "source": "core",
+      "target": "media",
+      "value": 4
+    },
+    {
+      "source": "core",
+      "target": "note-taking",
+      "value": 4
+    },
+    {
+      "source": "core",
+      "target": "productivity",
+      "value": 4
+    },
+    {
+      "source": "core",
+      "target": "research",
+      "value": 4
+    },
+    {
+      "source": "core",
+      "target": "social-media",
+      "value": 4
+    },
+    {
+      "source": "core",
+      "target": "software-development",
+      "value": 4
+    },
+    {
+      "source": "core",
+      "target": "web",
+      "value": 4
+    }
+  ],
+  "colors": {
+    "software-development": "#38bdf8",
+    "productivity": "#34d399",
+    "creative": "#c084fc",
+    "autonomous-ai-agents": "#f43f5e",
+    "research": "#fbbf24",
+    "apple": "#94a3b8",
+    "media": "#f97316",
+    "email": "#06b6d4",
+    "devops": "#e11d48",
+    "note-taking": "#a855f7",
+    "social-media": "#3b82f6",
+    "web": "#10b981"
+  }
+}
