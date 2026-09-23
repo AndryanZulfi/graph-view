@@ -5,64 +5,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HERMES // GRAPH VIEW - AI ARCHITECTURE & TOPOLOGY</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
-html,body{width:100%;height:100%;overflow:hidden;background:#060913;font-family:'JetBrains Mono',monospace;color:#e2e8f0;overscroll-behavior:none}
+html,body{width:100%;height:100%;overflow:hidden;background:#060913;font-family:'Inter',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:#e2e8f0;overscroll-behavior:none}
 canvas{position:absolute;top:0;left:0;display:block;touch-action:none}
 #bg{z-index:0}
 #main{z-index:1;cursor:grab}
 #main.dragging{cursor:grabbing}
 
-/* HUD Top Header */
-#hud{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:linear-gradient(180deg,rgba(6,9,19,0.92) 0%,rgba(6,9,19,0.5) 75%,transparent 100%);pointer-events:none}
-.logo-box{display:flex;align-items:center;gap:10px}
-.logo-core{width:14px;height:14px;border-radius:50%;background:#38bdf8;box-shadow:0 0 12px #38bdf8;animation:corePulse 2.4s infinite ease-in-out}
-@keyframes corePulse{0%,100%{transform:scale(0.9);opacity:0.8}50%{transform:scale(1.2);opacity:1}}
-.logo-title{font-size:13px;font-weight:800;letter-spacing:.12em;color:#f8fafc;text-shadow:0 0 10px rgba(56,189,248,0.5)}
-.logo-sub{font-size:9px;font-weight:600;letter-spacing:.18em;color:#64748b;margin-left:4px}
+/* Top App Header — Clean & Docked */
+#hud{position:fixed;top:0;left:0;right:0;height:46px;z-index:20;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:#080c14;border-bottom:1px solid rgba(255,255,255,0.08);pointer-events:auto}
+.brand-group{display:flex;align-items:center;gap:12px}
+.brand-title{font-size:13px;font-weight:700;color:#f8fafc;letter-spacing:-0.01em}
+.brand-sep{color:#475569;font-size:12px}
+.brand-sub{font-size:11px;font-weight:500;color:#94a3b8}
 
-/* Mode Switcher */
-.mode-switcher-box{display:flex;align-items:center;background:rgba(15,23,42,0.92);border:1px solid rgba(148,163,184,0.25);border-radius:7px;padding:3px;gap:3px;pointer-events:auto;box-shadow:0 4px 14px rgba(0,0,0,0.4)}
-.mode-tab-btn{background:transparent;border:1px solid transparent;color:#94a3b8;font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;letter-spacing:.08em;padding:5px 12px;border-radius:5px;cursor:pointer;transition:all .18s ease;display:flex;align-items:center;gap:6px}
-.mode-tab-btn:hover{color:#f8fafc;background:rgba(30,41,59,0.7)}
-.mode-tab-btn.active{background:rgba(56,189,248,0.18);color:#38bdf8;border-color:rgba(56,189,248,0.4);box-shadow:0 0 10px rgba(56,189,248,0.22)}
+/* Mode Switcher — Clean Segmented Control */
+.mode-switcher-box{display:flex;align-items:center;background:#0f1523;border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:2px;gap:2px}
+.mode-tab-btn{background:transparent;border:none;color:#94a3b8;font-family:inherit;font-size:11px;font-weight:500;padding:4px 10px;border-radius:4px;cursor:pointer;transition:background .15s ease,color .15s ease;display:flex;align-items:center;gap:5px}
+.mode-tab-btn:hover{color:#f1f5f9;background:rgba(255,255,255,0.04)}
+.mode-tab-btn.active{background:#1e293b;color:#f8fafc;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,0.3)}
 
-/* Filter / Layer Pills */
-.filter-bar{display:flex;gap:6px;pointer-events:auto}
-.filter-btn{background:rgba(15,23,42,0.85);border:1px solid rgba(148,163,184,0.22);color:#94a3b8;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.08em;padding:5px 11px;border-radius:6px;cursor:pointer;transition:all .18s ease}
-.filter-btn:hover{color:#f8fafc;border-color:rgba(56,189,248,0.45);background:rgba(30,41,59,0.9)}
-.filter-btn.active{color:#38bdf8;border-color:#38bdf8;background:rgba(56,189,248,0.12);box-shadow:0 0 10px rgba(56,189,248,0.25)}
+/* Domain Filter Tabs */
+.filter-bar{display:flex;align-items:center;gap:2px;background:#0f1523;border:1px solid rgba(255,255,255,0.06);border-radius:6px;padding:2px}
+.filter-btn{background:transparent;border:none;color:#94a3b8;font-family:inherit;font-size:11px;font-weight:500;padding:4px 10px;border-radius:4px;cursor:pointer;transition:all .15s ease}
+.filter-btn:hover{color:#f1f5f9;background:rgba(255,255,255,0.04)}
+.filter-btn.active{background:rgba(255,255,255,0.08);color:#f8fafc;font-weight:600}
 
-/* Top Stats Pills */
-.stats-bar{display:flex;align-items:center;gap:12px;font-size:9px;font-weight:600;letter-spacing:.08em;color:#94a3b8;pointer-events:auto}
-.stat-pill{display:flex;align-items:center;gap:6px;padding:4px 9px;border-radius:5px;background:rgba(15,23,42,0.7);border:1px solid rgba(148,163,184,0.15)}
-.stat-dot{width:6px;height:6px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981}
-
-/* Live Telemetry Pill */
-.live-pill{border-color:rgba(56,189,248,0.35)!important;background:rgba(15,23,42,0.9)!important;transition:all .25s ease}
-.live-pill.active{border-color:#8b5cf6!important;background:rgba(139,92,246,0.22)!important;box-shadow:0 0 12px rgba(139,92,246,0.4)}
-.live-dot{width:7px;height:7px;border-radius:50%;background:#10b981;box-shadow:0 0 6px #10b981}
-.live-pill.active .live-dot{background:#f43f5e;box-shadow:0 0 10px #f43f5e;animation:liveDotPulse .85s infinite alternate ease-in-out}
+/* Top Stats & Telemetry Toolbar */
+.stats-bar{display:flex;align-items:center;gap:12px;font-size:11px;color:#94a3b8}
+.stat-telemetry{display:flex;align-items:center;gap:6px;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;color:#94a3b8;padding:3px 8px;border-radius:4px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06)}
+.stat-telemetry.active{background:rgba(244,63,94,0.1);border-color:rgba(244,63,94,0.3);color:#fda4af}
+.live-dot{width:6px;height:6px;border-radius:50%;background:#10b981;display:inline-block}
+.stat-telemetry.active .live-dot{background:#f43f5e;animation:liveDotPulse .9s infinite alternate}
 @keyframes liveDotPulse{0%{transform:scale(0.85);opacity:0.7}100%{transform:scale(1.35);opacity:1}}
+.stat-sep{width:1px;height:14px;background:rgba(255,255,255,0.1)}
+.stat-item{display:flex;align-items:center;gap:5px;font-size:11px}
+.stat-lbl{color:#64748b;font-weight:500}
+.stat-val{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#cbd5e1}
 
-/* Left Navigation & Topology Drawer */
-#drawer{position:fixed;top:60px;left:18px;bottom:18px;width:260px;z-index:10;display:flex;flex-direction:column;background:rgba(10,15,29,0.85);backdrop-filter:blur(10px);border:1px solid rgba(148,163,184,0.16);border-radius:8px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,0.5);pointer-events:auto;transition:transform .25s ease}
-#drawer.collapsed{transform:translateX(-290px)}
-.drawer-header{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid rgba(148,163,184,0.12);background:rgba(15,23,42,0.6)}
-.drawer-title{font-size:10px;font-weight:700;letter-spacing:.12em;color:#cbd5e1}
-.drawer-toggle{cursor:pointer;background:none;border:none;color:#94a3b8;font-size:12px;padding:2px 6px}
-.drawer-toggle:hover{color:#fff}
-.drawer-search{padding:8px 12px;border-bottom:1px solid rgba(148,163,184,0.1)}
-.drawer-search input{width:100%;background:rgba(15,23,42,0.9);border:1px solid rgba(148,163,184,0.2);border-radius:4px;color:#f8fafc;font-family:'JetBrains Mono',monospace;font-size:9.5px;padding:5px 8px;outline:none}
-.drawer-search input:focus{border-color:#38bdf8}
-.drawer-list{flex:1;overflow-y:auto;padding:8px}
+/* Left Sidebar — Docked, Solid & Minimal */
+#drawer{position:fixed;top:46px;left:0;bottom:0;width:270px;z-index:15;display:flex;flex-direction:column;background:#080c14;border-right:1px solid rgba(255,255,255,0.08);box-shadow:none;transition:transform .2s ease}
+#drawer.collapsed{transform:translateX(-270px)}
+.drawer-header{display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:38px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.drawer-title{font-size:11px;font-weight:600;letter-spacing:.02em;color:#94a3b8;text-transform:uppercase}
+.drawer-toggle{cursor:pointer;background:transparent;border:none;color:#64748b;font-size:13px;padding:4px;border-radius:4px;display:flex;align-items:center;justify-content:center;transition:color .15s ease}
+.drawer-toggle:hover{color:#f1f5f9}
+.drawer-search{padding:8px 12px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.drawer-search input{width:100%;background:#0f1523;border:1px solid rgba(255,255,255,0.08);border-radius:5px;color:#f8fafc;font-family:inherit;font-size:11px;padding:6px 10px;outline:none;transition:border-color .15s ease}
+.drawer-search input:focus{border-color:#0284c7}
+.drawer-list{flex:1;overflow-y:auto;padding:6px 8px}
 .drawer-list::-webkit-scrollbar{width:4px}
-.drawer-list::-webkit-scrollbar-thumb{background:rgba(148,163,184,0.2);border-radius:2px}
-.nav-item{display:flex;align-items:center;justify-content:space-between;padding:6px 8px;margin-bottom:3px;border-radius:4px;cursor:pointer;font-size:9.5px;font-weight:500;color:#94a3b8;transition:all .15s ease}
-.nav-item:hover{background:rgba(30,41,59,0.8);color:#f8fafc}
-.nav-item.active{background:rgba(56,189,248,0.14);color:#38bdf8;font-weight:700}
-.nav-tag{font-size:7.5px;font-weight:700;padding:1px 5px;border-radius:3px;text-transform:uppercase}
+.drawer-list::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:2px}
+.nav-item{display:flex;align-items:center;justify-content:space-between;padding:6px 8px;margin-bottom:1px;border-radius:4px;cursor:pointer;font-size:11px;font-weight:400;color:#94a3b8;transition:background .12s ease,color .12s ease}
+.nav-item:hover{background:rgba(255,255,255,0.05);color:#f8fafc}
+.nav-item.active{background:rgba(14,165,233,0.12);color:#38bdf8;font-weight:500}
+.nav-tag{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;padding:1px 5px;border-radius:3px;text-transform:uppercase}
 
 /* Right Detail Inspector */
 #inspector{position:fixed;top:60px;right:18px;width:300px;max-height:calc(100vh - 80px);z-index:10;display:none;flex-direction:column;background:rgba(10,15,29,0.92);backdrop-filter:blur(12px);border:1px solid rgba(56,189,248,0.3);border-radius:8px;box-shadow:0 16px 36px rgba(0,0,0,0.6);padding:16px;pointer-events:auto}
@@ -103,49 +102,48 @@ canvas{position:absolute;top:0;left:0;display:block;touch-action:none}
 
 <!-- Top HUD -->
 <div id="hud">
-  <div class="logo-box">
-    <div class="logo-core"></div>
-    <div>
-      <span class="logo-title">GRAPH VIEW</span>
-      <span class="logo-sub">AI SYSTEM TOPOLOGY</span>
+  <div class="brand-group">
+    <span class="brand-title">Hermes</span>
+    <span class="brand-sep">/</span>
+    <span class="brand-sub">Topology</span>
+    <!-- Mode Switcher: Full Mesh vs Hermes Subgraph -->
+    <div class="mode-switcher-box">
+      <button class="mode-tab-btn" id="btn-mode-full" data-mode="full">Full Mesh</button>
+      <button class="mode-tab-btn active" id="btn-mode-hermes" data-mode="hermes">Hermes Core</button>
     </div>
-  </div>
-
-  <!-- Mode Switcher: Full Graph vs Hermes Connections -->
-  <div class="mode-switcher-box">
-    <button class="mode-tab-btn" id="btn-mode-full" data-mode="full">Full Graph</button>
-    <button class="mode-tab-btn active" id="btn-mode-hermes" data-mode="hermes">Hermes Connections</button>
   </div>
 
   <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all">ALL</button>
-    <button class="filter-btn" data-filter="skills">SKILLS</button>
-    <button class="filter-btn" data-filter="agents">AGENTS</button>
-    <button class="filter-btn" data-filter="llm">9ROUTER / LLM</button>
-    <button class="filter-btn" data-filter="memory">HONCHO / MEMORY</button>
-    <button class="filter-btn" data-filter="tools">MCP &amp; OPS</button>
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="skills">Skills</button>
+    <button class="filter-btn" data-filter="agents">Agents</button>
+    <button class="filter-btn" data-filter="llm">9Router</button>
+    <button class="filter-btn" data-filter="memory">Honcho</button>
+    <button class="filter-btn" data-filter="tools">Ops &amp; MCP</button>
   </div>
 
   <div class="stats-bar">
-    <div class="stat-pill live-pill" id="stat-live-telemetry">
-      <div class="live-dot" id="dot-live-telemetry"></div>
-      <span id="txt-live-telemetry">TELEMETRY: IDLE</span>
+    <div class="stat-telemetry" id="stat-live-telemetry">
+      <span class="live-dot" id="dot-live-telemetry"></span>
+      <span class="stat-val" id="txt-live-telemetry">CONNECTED</span>
     </div>
-    <div class="stat-pill"><div class="stat-dot"></div><span>CORE: HERMES</span></div>
-    <div class="stat-pill"><span>ROUTER: 9ROUTER (:20128)</span></div>
-    <div class="stat-pill"><span>MEMORY: HONCHO (:8000)</span></div>
-    <div class="stat-pill" id="stat-nodes"><span>NODES: 0</span></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><span class="stat-lbl">Router</span> <span class="stat-val">:20128</span></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><span class="stat-lbl">Memory</span> <span class="stat-val">:8000</span></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item" id="stat-nodes"><span class="stat-val">148 nodes</span></div>
   </div>
 </div>
 
 <!-- Left Drawer -->
 <div id="drawer">
   <div class="drawer-header">
-    <span class="drawer-title">SYSTEM DIRECTORY</span>
-    <button class="drawer-toggle" id="drawer-toggle">◀</button>
+    <span class="drawer-title">Directory</span>
+    <button class="drawer-toggle" id="drawer-toggle" title="Toggle sidebar">‹</button>
   </div>
   <div class="drawer-search">
-    <input type="text" id="node-search" placeholder="Filter component / port...">
+    <input type="text" id="node-search" placeholder="Filter components, skills, ports...">
   </div>
   <div class="drawer-list" id="drawer-list"></div>
 </div>
@@ -1068,7 +1066,7 @@ function updateStats(){
 
   const statEl = document.getElementById('stat-nodes');
   if(statEl){
-    statEl.textContent = `NODES: ${NODES.length} (${visibleNodes.length} VISIBLE)`;
+    statEl.innerHTML = `<span class="stat-val">${visibleNodes.length} / ${NODES.length} nodes</span>`;
   }
 }
 
@@ -1237,10 +1235,10 @@ function updateLiveStatusBadge(){
   if(LIVE_TRANSMISSIONS.length > 0){
     const latest = LIVE_TRANSMISSIONS[LIVE_TRANSMISSIONS.length - 1];
     pill.classList.add('active');
-    txt.textContent = `LIVE: ${latest.label || 'COMMUNICATION'} • ${latest.detail || ''}`;
+    txt.textContent = latest.label ? latest.label.toUpperCase() : 'ACTIVE';
   } else {
     pill.classList.remove('active');
-    txt.textContent = SSE_CONNECTED ? 'TELEMETRY: CONNECTED (IDLE)' : 'TELEMETRY: READY';
+    txt.textContent = SSE_CONNECTED ? 'CONNECTED' : 'STANDBY';
   }
 }
 
