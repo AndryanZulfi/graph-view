@@ -307,7 +307,7 @@ def get_skills_graph():
             'ports': 'stdio / ipc',
             'container': 'hermes (mcp)',
             'desc': 'Standardized tool interface executing tools across Docker containers, GitHub repos, Notion workspaces, and Postgres DB.',
-            'in_hermes_subgraph': False,
+            'in_hermes_subgraph': True,
             'initX': 0, 'initY': -280
         },
         {
@@ -574,7 +574,7 @@ def get_skills_graph():
             'status': 'enabled',
             'package': 'notion-mcp-server',
             'desc': 'Connects Hermes to Notion workspaces for syncing product notes, task tracking, and document archives.',
-            'in_hermes_subgraph': False,
+            'in_hermes_subgraph': True,
             'initX': 150, 'initY': -340
         },
 
@@ -806,7 +806,7 @@ def get_skills_graph():
         {'source': 'hermes', 'target': 'service-agents', 'kind': 'main', 'dir': 'both', 'label': 'Specialist Agents', 'value': 4, 'in_hermes_subgraph': True},
         {'source': 'hermes', 'target': 'service-9router', 'kind': 'main', 'dir': 'out', 'label': 'LLM Inferences', 'value': 4, 'in_hermes_subgraph': True},
         {'source': 'hermes', 'target': 'service-honcho', 'kind': 'main', 'dir': 'both', 'label': 'Memory Context & Dialectic', 'value': 4, 'in_hermes_subgraph': True},
-        {'source': 'hermes', 'target': 'service-mcp', 'kind': 'main', 'dir': 'both', 'label': 'Tool Protocol (Stdio/IPC)', 'value': 4, 'in_hermes_subgraph': False},
+        {'source': 'hermes', 'target': 'service-mcp', 'kind': 'main', 'dir': 'both', 'label': 'Tool Protocol (Stdio/IPC)', 'value': 4, 'in_hermes_subgraph': True},
         {'source': 'service-clients', 'target': 'hermes', 'kind': 'main', 'dir': 'both', 'label': 'User Prompts & Delivery', 'value': 4, 'in_hermes_subgraph': False},
 
         # 9Router → Models & Upstream Providers
@@ -843,7 +843,7 @@ def get_skills_graph():
         {'source': 'service-mcp', 'target': 'mcp-github', 'kind': 'dep', 'dir': 'out', 'label': 'Repo Operations', 'value': 2, 'in_hermes_subgraph': False},
         {'source': 'service-mcp', 'target': 'mcp-postgres', 'kind': 'dep', 'dir': 'out', 'label': 'Direct SQL Read', 'value': 2, 'in_hermes_subgraph': False},
         {'source': 'mcp-postgres', 'target': 'db-postgres', 'kind': 'dep', 'dir': 'out', 'label': 'Query Database', 'value': 2, 'in_hermes_subgraph': False},
-        {'source': 'service-mcp', 'target': 'mcp-notion', 'kind': 'dep', 'dir': 'out', 'label': 'Workspace Sync', 'value': 2, 'in_hermes_subgraph': False},
+        {'source': 'service-mcp', 'target': 'mcp-notion', 'kind': 'dep', 'dir': 'out', 'label': 'Workspace Sync', 'value': 2, 'in_hermes_subgraph': True},
         {'source': 'skill-github', 'target': 'mcp-github', 'kind': 'dep', 'dir': 'out', 'label': 'GitHub CLI & MCP', 'value': 2, 'in_hermes_subgraph': False},
         {'source': 'skill-scheduled-chat-reminders', 'target': 'client-whatsapp', 'kind': 'dep', 'dir': 'out', 'label': 'WhatsApp Delivery', 'value': 2, 'in_hermes_subgraph': False},
         {'source': 'skill-browser-testing-with-devtools', 'target': 'mcp-docker', 'kind': 'dep', 'dir': 'out', 'label': 'Browser Container', 'value': 2, 'in_hermes_subgraph': False},

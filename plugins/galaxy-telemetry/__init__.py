@@ -142,7 +142,43 @@ def pre_tool_call(**kwargs) -> None:
             "label": f"Honcho: {tool_name}",
             "detail": f"Executing {tool_name} memory access",
             "color": "#10b981",
-            "duration_s": 4.5,
+            "duration_s": 5.0,
+        })
+    elif tool_name == "skill_view":
+        s_name = args.get("name", "skill") if isinstance(args, dict) else "skill"
+        _send_telemetry({
+            "action": "skill_activated",
+            "from": "hermes",
+            "to": "service-skills",
+            "target": f"skill-{s_name}",
+            "label": f"Skill: {s_name}",
+            "detail": f"Loading skill {s_name}",
+            "color": "#06b6d4",
+            "duration_s": 5.0,
+        })
+    elif "notion" in tool_name.lower():
+        _send_telemetry({
+            "action": "mcp_query",
+            "from": "hermes",
+            "to": "service-mcp",
+            "target": "mcp-notion",
+            "label": "Notion MCP",
+            "detail": f"Executing {tool_name}",
+            "color": "#3b82f6",
+            "duration_s": 5.0,
+        })
+    elif tool_name.startswith("mcp__"):
+        parts = tool_name.split("__")
+        mcp_svc = parts[1] if len(parts) > 1 else "gateway"
+        _send_telemetry({
+            "action": "mcp_query",
+            "from": "hermes",
+            "to": "service-mcp",
+            "target": f"mcp-{mcp_svc}",
+            "label": f"MCP: {mcp_svc}",
+            "detail": f"Executing {tool_name}",
+            "color": "#3b82f6",
+            "duration_s": 5.0,
         })
     elif tool_name == "delegate_task":
         # Agent delegation
