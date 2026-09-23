@@ -711,20 +711,15 @@ function renderFrame(){
       CTX.beginPath(); CTX.arc(x, y, r - 6, 0, Math.PI*2);
       CTX.strokeStyle = hexAlpha(c, 0.25); CTX.lineWidth = 1; CTX.stroke();
 
-      // Top status/icon
-      const capIcon = n.id === 'service-skills' ? '⚡' : '👥';
-      CTX.fillStyle = c; CTX.font = '700 8.5px JetBrains Mono';
+      // Clean Authoritative Typography (No Emojis)
+      CTX.fillStyle = '#f8fafc'; CTX.font = '800 10px JetBrains Mono';
       CTX.textAlign = 'center'; CTX.textBaseline = 'middle';
-      CTX.fillText(capIcon, x, y - 11);
-
-      // Label
-      CTX.fillStyle = '#f8fafc'; CTX.font = '800 9px JetBrains Mono';
-      CTX.fillText(label.toUpperCase(), x, y - 1);
+      CTX.fillText(label.toUpperCase(), x, y - 5);
 
       // Sublabel / Count Pill
-      CTX.fillStyle = c; CTX.font = '700 6.5px JetBrains Mono';
+      CTX.fillStyle = c; CTX.font = '700 7px JetBrains Mono';
       const countTxt = n.id === 'service-skills' ? '91 SKILLS' : (n.id === 'service-agents' ? '26 AGENTS' : 'CAPABILITY');
-      CTX.fillText(countTxt, x, y + 9);
+      CTX.fillText(countTxt, x, y + 7);
     }
 
     // ── TIER B: PRIMARY SERVICES & GATEWAYS (9Router, Honcho, etc.) ──
@@ -777,20 +772,11 @@ function renderFrame(){
       CTX.stroke();
       CTX.shadowBlur = 0;
 
-      // Center Icon
-      let icon = '✦';
-      if(type === 'database') icon = '⛁';
-      else if(type === 'storage') icon = '💾';
-      else if(type === 'model' || type === 'provider') icon = '⚡';
-      else if(type === 'skill') icon = '⚙';
-      else if(type === 'agent') icon = '👤';
-      else if(type === 'channel') icon = '💬';
-      else if(type === 'monitoring') icon = '📈';
-      else if(type === 'dependency') icon = '◈';
-
-      CTX.fillStyle = c; CTX.font = '700 8.5px JetBrains Mono';
-      CTX.textAlign = 'center'; CTX.textBaseline = 'middle';
-      CTX.fillText(icon, x, y);
+      // Clean Technical Center Core Dot (Zero Emoji / Pure Engineering Precision)
+      CTX.beginPath();
+      CTX.arc(x, y, isHov || isSel ? 3.0 : 2.0, 0, Math.PI * 2);
+      CTX.fillStyle = isHov || isSel ? '#ffffff' : c;
+      CTX.fill();
 
       // Label Chip (Always readable or expanded on hover)
       if(isHov || isSel || camZ > 0.85){
@@ -1268,7 +1254,7 @@ function handleTelemetryEvent(data){
     LIVE_TRANSMISSIONS = LIVE_TRANSMISSIONS.filter(t => t.id !== data.id);
     LIVE_TRANSMISSIONS.push(data);
     updateLiveStatusBadge();
-    showToast(`⚡ ${data.label || 'LIVE TELEMETRY'}`);
+    showToast(`[LIVE] ${data.label || 'LIVE TELEMETRY'}`);
   } else if(data.type === 'telemetry_ended'){
     LIVE_TRANSMISSIONS = LIVE_TRANSMISSIONS.filter(t => t.id !== data.id);
     updateLiveStatusBadge();
@@ -1288,7 +1274,7 @@ function handleTelemetryEvent(data){
     LIVE_TRANSMISSIONS = LIVE_TRANSMISSIONS.filter(t => t.id !== tx.id);
     LIVE_TRANSMISSIONS.push(tx);
     updateLiveStatusBadge();
-    showToast(`⚡ SKILL ACTIVE: ${data.skill}`);
+    showToast(`[ACTIVE] SKILL: ${data.skill}`);
   } else if(data.type === 'skill_deactivated'){
     ACTIVE_SKILLS.delete(data.skill);
     LIVE_TRANSMISSIONS = LIVE_TRANSMISSIONS.filter(t => t.id !== `skill_${data.skill}`);
