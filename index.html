@@ -48,6 +48,12 @@ canvas{position:absolute;top:0;left:0;display:block;touch-action:none}
 /* Left Sidebar — Docked, Solid & Minimal */
 #drawer{position:fixed;top:46px;left:0;bottom:0;width:270px;z-index:15;display:flex;flex-direction:column;background:#080c14;border-right:1px solid rgba(255,255,255,0.08);box-shadow:none;transition:transform .2s ease}
 #drawer.collapsed{transform:translateX(-270px)}
+.sidebar-edge-tab{position:fixed;top:54px;left:0;z-index:16;width:22px;height:40px;background:#080c14;border:1px solid rgba(255,255,255,0.12);border-left:none;border-radius:0 5px 5px 0;color:#94a3b8;display:none;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:all .15s ease}
+.sidebar-edge-tab:hover{background:#0f1523;color:#f8fafc;width:26px}
+#drawer.collapsed + .sidebar-edge-tab{display:flex}
+.topbar-btn{background:transparent;border:1px solid rgba(255,255,255,0.08);border-radius:5px;color:#94a3b8;cursor:pointer;padding:4px 6px;display:flex;align-items:center;justify-content:center;transition:all .15s ease}
+.topbar-btn:hover{background:rgba(255,255,255,0.06);color:#f8fafc;border-color:rgba(255,255,255,0.14)}
+.topbar-btn.active{color:#38bdf8;border-color:rgba(56,189,248,0.3);background:rgba(14,165,233,0.08)}
 .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:0 14px;height:38px;border-bottom:1px solid rgba(255,255,255,0.06)}
 .drawer-title{font-size:11px;font-weight:600;letter-spacing:.02em;color:#94a3b8;text-transform:uppercase}
 .drawer-toggle{cursor:pointer;background:transparent;border:none;color:#64748b;font-size:13px;padding:4px;border-radius:4px;display:flex;align-items:center;justify-content:center;transition:color .15s ease}
@@ -103,6 +109,12 @@ canvas{position:absolute;top:0;left:0;display:block;touch-action:none}
 <!-- Top HUD -->
 <div id="hud">
   <div class="brand-group">
+    <button class="topbar-btn active" id="btn-toggle-sidebar" title="Toggle Sidebar (Directory)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+        <line x1="9" y1="3" x2="9" y2="21"/>
+      </svg>
+    </button>
     <span class="brand-title">Hermes</span>
     <span class="brand-sep">/</span>
     <span class="brand-sub">Topology</span>
@@ -136,17 +148,18 @@ canvas{position:absolute;top:0;left:0;display:block;touch-action:none}
   </div>
 </div>
 
-<!-- Left Drawer -->
+<!-- Left Drawer & Reopen Edge Tab -->
 <div id="drawer">
   <div class="drawer-header">
     <span class="drawer-title">Directory</span>
-    <button class="drawer-toggle" id="drawer-toggle" title="Toggle sidebar">‹</button>
+    <button class="drawer-toggle" id="drawer-toggle" title="Collapse sidebar">‹</button>
   </div>
   <div class="drawer-search">
     <input type="text" id="node-search" placeholder="Filter components, skills, ports...">
   </div>
   <div class="drawer-list" id="drawer-list"></div>
 </div>
+<button id="btn-open-sidebar" class="sidebar-edge-tab" title="Open Directory (Sidebar)">›</button>
 
 <!-- Right Inspector -->
 <div id="inspector">
@@ -1105,10 +1118,27 @@ document.getElementById('node-search').addEventListener('input', e => {
   updateDrawer();
 });
 
-document.getElementById('drawer-toggle').addEventListener('click', () => {
+function toggleDrawer(){
   const dr = document.getElementById('drawer');
-  dr.classList.toggle('collapsed');
-  document.getElementById('drawer-toggle').textContent = dr.classList.contains('collapsed') ? '▶' : '◀';
+  const isCollapsed = dr.classList.toggle('collapsed');
+  const btnTop = document.getElementById('btn-toggle-sidebar');
+  const btnInner = document.getElementById('drawer-toggle');
+  if(btnTop) btnTop.classList.toggle('active', !isCollapsed);
+  if(btnInner) btnInner.textContent = isCollapsed ? '›' : '‹';
+}
+
+const toggleBtn = document.getElementById('drawer-toggle');
+if(toggleBtn) toggleBtn.addEventListener('click', toggleDrawer);
+const btnTop = document.getElementById('btn-toggle-sidebar');
+if(btnTop) btnTop.addEventListener('click', toggleDrawer);
+const btnEdge = document.getElementById('btn-open-sidebar');
+if(btnEdge) btnEdge.addEventListener('click', toggleDrawer);
+
+window.addEventListener('keydown', e => {
+  if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'b'){
+    e.preventDefault();
+    toggleDrawer();
+  }
 });
 
 // Recenter & Zoom Controls
