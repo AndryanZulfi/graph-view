@@ -293,6 +293,23 @@ def get_skills_graph():
             'initX': -220, 'initY': 160
         },
 
+        # 9. RADAR CAPABILITY
+        {
+            'id': 'service-radar',
+            'label': 'AI Tech Radar',
+            'sublabel': 'INTELLIGENCE RADAR',
+            'type': 'capability',
+            'tier': 'capability',
+            'category': 'research',
+            'group': 'skills',
+            'role': 'Autonomous Tech Discovery & Verification',
+            'status': 'online',
+            'path': '/opt/data/radar',
+            'desc': 'Continuous discovery, verification, user-relevance scoring, and intelligence digest system for AI & engineering developments.',
+            'in_hermes_subgraph': True,
+            'initX': 0, 'initY': 180
+        },
+
         # 4. FULL GRAPH SERVICES (Visible in Full Graph mode)
         {
             'id': 'service-mcp',
@@ -834,6 +851,10 @@ def get_skills_graph():
         {'source': 'agent-cloud-security-architect', 'target': 'skill-security-and-hardening', 'kind': 'dep', 'dir': 'out', 'label': 'Hardening Specs', 'value': 2, 'in_hermes_subgraph': True},
         {'source': 'agent-accessibility-auditor', 'target': 'skill-frontend-ui-engineering', 'kind': 'dep', 'dir': 'out', 'label': 'UI Standards', 'value': 2, 'in_hermes_subgraph': True},
         {'source': 'agent-senior-project-manager', 'target': 'skill-planning-and-task-breakdown', 'kind': 'dep', 'dir': 'out', 'label': 'Task Breakdown', 'value': 2, 'in_hermes_subgraph': True},
+        {'source': 'hermes', 'target': 'service-radar', 'kind': 'dep', 'dir': 'both', 'label': 'Radar Pipeline', 'value': 4, 'in_hermes_subgraph': True},
+        {'source': 'service-radar', 'target': 'service-9router', 'kind': 'dep', 'dir': 'out', 'label': 'Research LLM', 'value': 2, 'in_hermes_subgraph': True},
+        {'source': 'service-radar', 'target': 'service-honcho', 'kind': 'dep', 'dir': 'out', 'label': 'Insight Memory', 'value': 2, 'in_hermes_subgraph': True},
+        {'source': 'service-radar', 'target': 'client-whatsapp', 'kind': 'dep', 'dir': 'out', 'label': 'Daily Digest', 'value': 2, 'in_hermes_subgraph': False},
         {'source': 'agent-research-synthesist', 'target': 'skill-grounded-citations', 'kind': 'dep', 'dir': 'out', 'label': 'Fact Verification', 'value': 2, 'in_hermes_subgraph': True},
         {'source': 'agent-image-prompt-engineer', 'target': 'skill-baoyu-infographic', 'kind': 'dep', 'dir': 'out', 'label': 'Visual Generation', 'value': 2, 'in_hermes_subgraph': True},
         {'source': 'agent-desktop-app-engineer', 'target': 'skill-systematic-debugging', 'kind': 'dep', 'dir': 'out', 'label': 'Systematic Debug', 'value': 2, 'in_hermes_subgraph': True},
